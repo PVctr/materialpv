@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Paulo Victor — Landing pages e sites institucionais</title>
+  <meta name="description" content="Paulo Victor, desenvolvedor web. Landing pages e sites institucionais rápidos, responsivos e feitos para transformar visita em contato.">
+  <meta name="theme-color" content="#0b0d10">
+  <link rel="canonical" href="https://portfoliopv.vercel.app/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Paulo Victor — Landing pages e sites institucionais">
+  <meta property="og:description" content="Páginas que convertem. Sites que impõem respeito.">
+  <meta property="og:url" content="https://portfoliopv.vercel.app/">
+  <meta property="og:image" content="https://portfoliopv.vercel.app/assets/img/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
+  <!-- Decide, antes da primeira pintura, se a abertura roda: uma vez por sessão,
+       sem "reduzir movimento", sem economia de dados e sem link direto para uma seção.
+       Use ?intro para rever a abertura. -->
+  <script>
+    (function (d) {
+      var r = d.documentElement; r.classList.add('js');
+      var seen = false; try { seen = sessionStorage.getItem('pv-intro') === '1'; } catch (e) {}
+      var force = /[?&]intro\b/.test(location.search);
+      var calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var save = navigator.connection && navigator.connection.saveData;
+      if (force || (!seen && !calm && !save && !location.hash)) r.classList.add('has-intro');
+    })(document);
+  </script>
+
+  <link rel="preload" href="assets/fonts/InstrumentSerif-Regular.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="assets/fonts/InstrumentSans-Regular.woff" as="font" type="font/woff" crossorigin>
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Paulo Victor",
+    "jobTitle": "Desenvolvedor web",
+    "description": "Criação de landing pages e sites institucionais.",
+    "url": "https://portfoliopv.vercel.app/",
+    "telephone": "+55 21 99077-7088"
+  }
+  </script>
+</head>
+
+<body>
+
+  <!-- Abertura em vídeo -->
+  <div class="intro" id="intro" role="presentation">
+    <video class="intro__video" id="introVideo" muted playsinline autoplay preload="auto"
+           aria-hidden="true" tabindex="-1" disablepictureinpicture disableremoteplayback></video>
+    <button class="intro__skip" id="introSkip" type="button">Pular abertura</button>
+  </div>
+  <script>
+    (function () {
+      var v = document.getElementById('introVideo');
+      if (!v || !document.documentElement.classList.contains('has-intro')) return;
+      var o = matchMedia('(max-aspect-ratio: 1/1)').matches ? 'portrait' : 'landscape';
+      v.muted = true;
+      [['mp4', 'video/mp4'], ['webm', 'video/webm']].forEach(function (f) {
+        var s = document.createElement('source');
+        s.src = 'assets/video/intro-' + o + '.' + f[0]; s.type = f[1];
+        v.appendChild(s);
+      });
+      v.load();
+    })();
+  </script>
+
+  <div id="app">
+    <a class="sr-only" href="#conteudo">Ir para o conteúdo</a>
+    <div class="sentinel" id="sentinel" aria-hidden="true" style="position:absolute;top:0;left:0;width:1px;height:1px"></div>
+
+    <!-- Cabeçalho flutuante -->
+    <header class="header" id="top">
+      <div class="header__inner">
+        <a class="logo" href="#top" aria-label="Paulo Victor, início">Paulo Victor<i class="dot">.</i></a>
+
+        <nav class="nav" aria-label="Principal">
+          <ul class="nav__list">
+            <li><a class="nav__link" href="#projetos">Projetos</a></li>
+            <li><a class="nav__link" href="#servicos">Serviços</a></li>
+            <li><a class="nav__link" href="#processo">Processo</a></li>
+            <li><a class="nav__link" href="#sobre">Sobre</a></li>
+          </ul>
+          <a class="btn btn--solid btn--sm nav__cta" href="https://wa.me/5521990777088?text=Ol%C3%A1%2C%20Paulo!%20Vim%20pelo%20seu%20portf%C3%B3lio." target="_blank" rel="noopener noreferrer">
+            <svg class="ico" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M8 1.6a6.4 6.4 0 0 0-5.5 9.7L1.6 14.4l3.2-.85A6.4 6.4 0 1 0 8 1.6z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+            WhatsApp
+          </a>
+          <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mobileNav">
+            <span class="menu-btn__label" id="menuLabel">Menu</span><span class="menu-btn__bars" aria-hidden="true"></span>
+          </button>
+        </nav>
+      </div>
+
+      <div class="mobile-nav" id="mobileNav" hidden>
+        <nav class="mobile-nav__inner" aria-label="Menu móvel">
+          <a class="mobile-nav__link" href="#projetos" style="--i:0"><span>01</span>Projetos</a>
+          <a class="mobile-nav__link" href="#servicos" style="--i:1"><span>02</span>Serviços</a>
+          <a class="mobile-nav__link" href="#processo" style="--i:2"><span>03</span>Processo</a>
+          <a class="mobile-nav__link" href="#sobre" style="--i:3"><span>04</span>Sobre</a>
+          <a class="btn btn--solid mobile-nav__cta" style="--i:4" href="https://wa.me/5521990777088?text=Ol%C3%A1%2C%20Paulo!%20Vim%20pelo%20seu%20portf%C3%B3lio." target="_blank" rel="noopener noreferrer">Chamar no WhatsApp</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="conteudo">
+
+      <!-- Hero -->
+      <section class="hero" id="inicio" aria-labelledby="hero-title">
+        <canvas class="hero__field" id="field" aria-hidden="true"></canvas>
+
+        <div class="wrap hero__inner">
+          <p class="eyebrow rise" style="--i:0"><span aria-hidden="true">//</span> landing pages e sites institucionais</p>
+
+          <h1 class="hero__title" id="hero-title">
+            <span class="reveal" style="--i:0"><span>Páginas que <em>convertem</em><i class="dot">.</i></span></span>
+            <span class="reveal" style="--i:1"><span>Sites que impõem respeito<i class="dot">.</i></span></span>
+          </h1>
+
+          <p class="hero__type rise" style="--i:1">
+            <span class="prompt" aria-hidden="true">&gt;</span>
+            <span class="sr-only">Eu crio landing pages e sites institucionais.</span>
+            <span aria-hidden="true">eu crio <span class="typed" id="typed">landing pages</span><i class="caret"></i></span>
+          </p>
+
+          <p class="hero__lead rise" style="--i:2">Rápidos, diretos e construídos para uma coisa: transformar visita em contato.</p>
+
+          <div class="hero__actions rise" style="--i:3">
+            <a class="btn btn--solid btn--lg" href="#projetos">
+              Ver projetos
+              <svg class="ico" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M8 3v10M4 9l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a class="btn btn--line btn--lg" href="https://wa.me/5521990777088?text=Ol%C3%A1%2C%20Paulo!%20Vim%20pelo%20seu%20portf%C3%B3lio." target="_blank" rel="noopener noreferrer">
+              <svg class="ico" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M8 1.6a6.4 6.4 0 0 0-5.5 9.7L1.6 14.4l3.2-.85A6.4 6.4 0 1 0 8 1.6z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+              Chamar no WhatsApp
+            </a>
+          </div>
+
+          <ul class="hero__facts rise" style="--i:4" aria-label="Em resumo">
+            <li>HTML, CSS e JavaScript</li>
+            <li>Publicação na Vercel, com domínio próprio</li>
+            <li>Do briefing ao ar, direto comigo</li>
+          </ul>
+        </div>
+
+        <a class="hero__cue rise" style="--i:5" href="#projetos"><span>role para ver os projetos</span><kbd aria-hidden="true">↓</kbd></a>
+      </section>
+
+      <!-- Faixa em rolagem -->
+      <div class="marquee" aria-label="Especialidades">
+        <div class="marquee__track">
+          <ul class="marquee__list">
+            <li>Landing pages</li><li>Sites institucionais</li><li>Responsivo</li><li>Performance</li><li>SEO técnico</li><li>Foco em conversão</li>
+          </ul>
+          <ul class="marquee__list" aria-hidden="true">
+            <li>Landing pages</li><li>Sites institucionais</li><li>Responsivo</li><li>Performance</li><li>SEO técnico</li><li>Foco em conversão</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Projetos -->
+      <section class="section" id="projetos" aria-labelledby="projetos-title">
+        <div class="wrap">
+          <div class="section__head" data-reveal>
+            <p class="label"><span>01</span> Projetos</p>
+            <h2 class="section__title" id="projetos-title">Trabalhos no ar<i class="dot">.</i></h2>
+            <p class="section__lead">Projetos reais, publicados e funcionando. Clique para abrir cada um.</p>
+          </div>
+
+          <div class="projects">
+
+            <article class="project" data-reveal>
+              <div class="project__shot">
+                <div class="shot shot--rose" aria-hidden="true">
+                  <div class="shot__bar"><i></i><i></i><i></i><span class="shot__url">siteisabelleromano.vercel.app</span></div>
+                  <div class="shot__page">
+                    <div class="m-nav"><b>Isabelle Romano</b><small>Nail designer</small><span class="m-pill">Ligar agora</span></div>
+                    <p class="m-kicker">Nail designer a domicílio, Rio de Janeiro</p>
+                    <h4 class="m-title">Manicure e pedicure no conforto da sua casa</h4>
+                    <p class="m-text">Atendimento com hora marcada no Rio de Janeiro. Eu levo o material até você, com cuidado, higiene e sem pressa.</p>
+                    <div class="m-btns"><span class="m-btn m-btn--solid">Ligar agora</span><span class="m-btn">Chamar no WhatsApp</span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="project__info">
+                <p class="project__top"><span class="project__num">01</span><span class="chip">Nail designer a domicílio</span></p>
+                <h3 class="project__name">Isabelle Romano</h3>
+                <p class="project__desc">Site para uma nail designer que atende em domicílio no Rio de Janeiro, com chamadas diretas para ligar e para o WhatsApp.</p>
+                <p class="project__url">siteisabelleromano.vercel.app</p>
+                <a class="btn btn--solid project__link" href="https://siteisabelleromano.vercel.app" target="_blank" rel="noopener noreferrer">Ver projeto<span class="sr-only">: Isabelle Romano (abre em nova aba)</span>
+                  <svg class="ico" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M4 12L12 4M5.5 4H12v6.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+              </div>
+            </article>
+
+            <article class="project project--flip" data-reveal>
+              <div class="project__shot">
+                <div class="shot shot--noir" aria-hidden="true">
+                  <div class="shot__bar"><i></i><i></i><i></i><span class="shot__url">siteetrea.vercel.app</span></div>
+                  <div class="shot__page">
+                    <div class="m-nav"><b>Etrea.</b><small>Assistência para celulares</small><span class="m-pill">WhatsApp</span></div>
+                    <span class="m-chip">Celulares e acessórios</span>
+                    <h4 class="m-title">Conserto de celular com orçamento claro e garantia</h4>
+                    <div class="m-btns"><span class="m-btn m-btn--solid">Ligar para a Etrea</span><span class="m-btn">Montar orçamento</span></div>
+                    <p class="m-note">Estimativa sem compromisso. Garantia no serviço.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="project__info">
+                <p class="project__top"><span class="project__num">02</span><span class="chip">Assistência para celulares</span></p>
+                <h3 class="project__name">Etrea</h3>
+                <p class="project__desc">Site para uma assistência de celulares, com foco em orçamento claro, garantia no serviço e contato rápido pelo WhatsApp.</p>
+                <p class="project__url">siteetrea.vercel.app</p>
+                <a class="btn btn--solid project__link" href="https://siteetrea.vercel.app" target="_blank" rel="noopener noreferrer">Ver projeto<span class="sr-only">: Etrea (abre em nova aba)</span>
+                  <svg class="ico" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M4 12L12 4M5.5 4H12v6.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+              </div>
+            </article>
+
+            <article class="project" data-reveal>
+              <div class="project__shot">
+                <div class="shot shot--navy" aria-hidden="true">
+                  <div class="shot__bar"><i></i><i></i><i></i><span class="shot__url">sitedrjorgelopes1.vercel.app</span></div>
+                  <div class="shot__page">
+                    <div class="m-nav"><b>Lopes Bahia</b><small>Advogados associados</small><span class="m-pill">Ligar</span></div>
+                    <p class="m-kicker">Atendimento on-line para Rio de Janeiro</p>
+                    <h4 class="m-title">Advogado trabalhista em Comendador Levy Gasparian e região</h4>
+                    <p class="m-text">Foi demitido, trabalha sem registro ou tem dúvidas sobre horas extras? Receba orientação clara sobre os seus direitos.</p>
+                    <div class="m-btns"><span class="m-btn m-btn--solid">Consultoria grátis</span><span class="m-btn">Enviar mensagem no WhatsApp</span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="project__info">
+                <p class="project__top"><span class="project__num">03</span><span class="chip">Advocacia trabalhista</span></p>
+                <h3 class="project__name">Dr. Jorge Lopes</h3>
+                <p class="project__desc">Site para um escritório de advocacia trabalhista, com atendimento on-line e a consultoria como chamada principal.</p>
+                <p class="project__url">sitedrjorgelopes1.vercel.app</p>
+                <a class="btn btn--solid project__link" href="https://sitedrjorgelopes1.vercel.app" target="_blank" rel="noopener noreferrer">Ver projeto<span class="sr-only">: Dr. Jorge Lopes (abre em nova aba)</span>
+                  <svg class="ico" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M4 12L12 4M5.5 4H12v6.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+              </div>
+            </article>
+
+          </div>
+
+          <div class="works__cta" data-reveal>
+            <p>Gostou do que viu? Vamos conversar.</p>
+            <a class="btn btn--solid btn--lg" href="https://wa.me/5521990777088?text=Ol%C3%A1%2C%20Paulo!%20Vi%20seus%20projetos%20e%20gostaria%20de%20conversar." target="_blank" rel="noopener noreferrer">Chamar no WhatsApp</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Serviços -->
+      <section class="section section--surface" id="servicos" aria-labelledby="servicos-title">
+        <div class="wrap">
+          <div class="section__head" data-reveal>
+            <p class="label"><span>02</span> Serviços</p>
+            <h2 class="section__title" id="servicos-title">O que eu entrego<i class="dot">.</i></h2>
+          </div>
+
+          <div class="services">
+            <article class="service" data-reveal style="--d:0">
+              <span class="service__num" aria-hidden="true">01</span>
+              <h3 class="service__title">Landing pages</h3>
+              <p class="service__text">Uma página, um objetivo, uma chamada para ação. Estrutura pensada para guiar o visitante até o contato, sem distração no caminho.</p>
+              <ul class="tags" aria-label="Ideal para">
+                <li>Captação</li><li>Campanhas</li><li>Lançamentos</li>
+              </ul>
+            </article>
+            <article class="service" data-reveal style="--d:1">
+              <span class="service__num" aria-hidden="true">02</span>
+              <h3 class="service__title">Sites institucionais</h3>
+              <p class="service__text">Presença digital sólida para quem precisa transmitir autoridade. Navegação clara, conteúdo organizado e identidade visual consistente.</p>
+              <ul class="tags" aria-label="Ideal para">
+                <li>Empresas</li><li>Profissionais</li><li>Marcas</li>
+              </ul>
+            </article>
+            <article class="service" data-reveal style="--d:2">
+              <span class="service__num" aria-hidden="true">03</span>
+              <h3 class="service__title">Performance e publicação</h3>
+              <p class="service__text">Carregamento rápido, layout responsivo e SEO técnico na base. Publicação na Vercel, com domínio próprio e tudo pronto para ir ao ar.</p>
+              <ul class="tags" aria-label="Inclui">
+                <li>Velocidade</li><li>Mobile</li><li>Deploy</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Processo -->
+      <section class="section" id="processo" aria-labelledby="processo-title">
+        <div class="wrap">
+          <div class="section__head" data-reveal>
+            <p class="label"><span>03</span> Processo</p>
+            <h2 class="section__title" id="processo-title">Do briefing ao ar<i class="dot">.</i></h2>
+          </div>
+
+          <ol class="steps">
+            <li class="step" data-reveal style="--d:0">
+              <span class="step__num" aria-hidden="true">01</span>
+              <h3 class="step__title">Briefing</h3>
+              <p class="step__text">Entendo o negócio, o público e o objetivo da página antes de desenhar qualquer coisa.</p>
+            </li>
+            <li class="step" data-reveal style="--d:1">
+              <span class="step__num" aria-hidden="true">02</span>
+              <h3 class="step__title">Estrutura</h3>
+              <p class="step__text">Defino as seções, a hierarquia da mensagem e o caminho até a chamada para ação.</p>
+            </li>
+            <li class="step" data-reveal style="--d:2">
+              <span class="step__num" aria-hidden="true">03</span>
+              <h3 class="step__title">Design e código</h3>
+              <p class="step__text">Visual, textos e desenvolvimento juntos, com layout responsivo e carregamento leve.</p>
+            </li>
+            <li class="step" data-reveal style="--d:3">
+              <span class="step__num" aria-hidden="true">04</span>
+              <h3 class="step__title">Publicação</h3>
+              <p class="step__text">Deploy na Vercel, domínio configurado e ajustes finais. Seu site no ar.</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- Sobre -->
+      <section class="section section--top-rule" id="sobre" aria-labelledby="sobre-title">
+        <div class="wrap about">
+          <div class="about__head" data-reveal>
+            <p class="label"><span>04</span> Sobre</p>
+            <h2 class="section__title" id="sobre-title">Paulo Victor<i class="dot">.</i></h2>
+            <p class="about__role">Desenvolvedor web, landing pages e sites institucionais</p>
+            <div class="about__mark" aria-hidden="true">PV<i class="dot">.</i></div>
+          </div>
+
+          <div class="about__body" data-reveal style="--d:1">
+            <div class="about__text">
+              <p>Sou formado em Análise e Desenvolvimento de Sistemas e sempre curti a área de informática. Foi dessa curiosidade que nasceu o meu trabalho: criar páginas para a web com HTML, CSS e JavaScript, cuidando de cada detalhe, do layout ao código.</p>
+              <p>Tenho experiência na criação de landing pages e sites institucionais, sempre com foco em páginas rápidas, responsivas e objetivas, que passem credibilidade e levem o visitante a entrar em contato. Do briefing à publicação, você fala direto comigo.</p>
+            </div>
+
+            <dl class="about__facts">
+              <div class="about__row"><dt>Formação</dt><dd>Análise e Desenvolvimento de Sistemas</dd></div>
+              <div class="about__row"><dt>Tecnologias</dt><dd>HTML, CSS e JavaScript</dd></div>
+              <div class="about__row"><dt>Foco</dt><dd>Landing pages e sites institucionais</dd></div>
+              <div class="about__row"><dt>Publicação</dt><dd>Vercel, com domínio próprio</dd></div>
+            </dl>
+
+            <div class="about__cta">
+              <a class="btn btn--solid" href="#contato">Falar com o Paulo</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contato -->
+      <section class="section section--close" id="contato" aria-labelledby="contato-title">
+        <div class="wrap">
+          <div class="contact" data-reveal>
+            <div class="contact__head">
+              <p class="label label--on-accent"><span>05</span> Contato</p>
+              <h2 class="contact__title" id="contato-title">Tem um projeto? Vamos colocar no ar<i class="dot">.</i></h2>
+              <p class="contact__lead">Preencha o formulário ao lado e a conversa já abre no WhatsApp com tudo organizado. Prefere falar direto? É só chamar.</p>
+
+              <div class="contact__direct">
+                <span class="contact__label">WhatsApp</span>
+                <a class="contact__phone" href="tel:+5521990777088">+55 21 99077-7088</a>
+                <div class="contact__cta">
+                  <a class="btn btn--dark btn--lg" href="https://wa.me/5521990777088?text=Ol%C3%A1%2C%20Paulo!%20Vim%20pelo%20seu%20portf%C3%B3lio." target="_blank" rel="noopener noreferrer">Chamar agora</a>
+                </div>
+              </div>
+            </div>
+
+            <form class="form" id="briefing" novalidate>
+              <h3 class="form__title">Conte sobre seu projeto.</h3>
+
+              <div class="field">
+                <label class="field__label" for="tipo">Que tipo de site você precisa?<span aria-hidden="true"> *</span></label>
+                <select class="field__control" id="tipo" name="tipo" required aria-describedby="tipo-erro">
+                  <option value="">Selecione uma opção</option>
+                  <option>Site institucional</option>
+                  <option>Landing page</option>
+                  <option>Ainda não sei</option>
+                </select>
+                <p class="field__error" id="tipo-erro" role="alert" hidden>Escolha o tipo de site para continuar.</p>
+              </div>
+
+              <div class="field">
+                <label class="field__label" for="objetivo">Qual o objetivo do site?<small>Opcional</small></label>
+                <textarea class="field__control" id="objetivo" name="objetivo" rows="4" maxlength="1000" placeholder="Descreva o objetivo do site."></textarea>
+                <div class="field__foot"><span></span><span><span id="contador">0</span> / 1000</span></div>
+              </div>
+
+              <div class="field">
+                <label class="field__label" for="nome">Como podemos chamar você?<small>Opcional</small></label>
+                <input class="field__control" id="nome" name="nome" type="text" autocomplete="given-name" maxlength="80">
+              </div>
+
+              <div><button class="btn btn--solid btn--lg form__submit" type="submit">Abrir conversa no WhatsApp</button></div>
+              <p class="form__note">O pedido será aberto no canal de contato. O envio só acontece quando você confirmar no aplicativo.</p>
+
+              <div class="form__alt">
+                <a class="link" href="https://wa.me/5521990777088" target="_blank" rel="noopener noreferrer">Conversar direto no WhatsApp</a>
+                <button class="link" type="button" id="copiar">Copiar mensagem</button>
+              </div>
+              <p class="sr-only" id="status" role="status" aria-live="polite"></p>
+              <noscript><p class="form__note">Ative o JavaScript para usar o formulário, ou fale direto pelo WhatsApp: +55 21 99077-7088.</p></noscript>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <div class="footer">
+          <span class="footer__brand">Paulo Victor<i class="dot">.</i></span>
+          <div class="footer__meta">
+            <span>© 2026 Landing pages e sites institucionais</span>
+            <a href="tel:+5521990777088">WhatsApp +55 21 99077-7088</a>
+            <a href="#top">Voltar ao topo</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Barra fixa de contato (só no celular) -->
+    <div class="dock" id="dock" inert>
+      <a class="btn btn--solid dock__btn" href="https://wa.me/5521990777088?text=Ol%C3%A1%2C%20Paulo!%20Vim%20pelo%20seu%20portf%C3%B3lio." target="_blank" rel="noopener noreferrer">
+        <svg class="ico" viewBox="0 0 16 16" width="18" height="18" aria-hidden="true"><path d="M8 1.6a6.4 6.4 0 0 0-5.5 9.7L1.6 14.4l3.2-.85A6.4 6.4 0 1 0 8 1.6z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+        Chamar no WhatsApp
+      </a>
+    </div>
+  </div>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>
