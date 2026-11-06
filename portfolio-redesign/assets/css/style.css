@@ -477,6 +477,34 @@ body.menu-open .header__inner {
 }
 .shot--navy .m-title, .shot--navy .m-text, .shot--navy .m-btns, .shot--navy .m-kicker { position: relative; z-index: 1; }
 
+.shot--saude {
+  --shot-bg: #14253B; --shot-fg: #ffffff; --shot-bar: #0B1727; --shot-line: #2A3D57; --shot-dot: #2A3D57;
+  --shot-url: #14253B; --shot-muted: #AEBBCB; --shot-accent: #E3E9F1; --shot-soft: #C9D3E0;
+  --shot-solid-bg: #1E8549; --shot-solid-fg: #ffffff; --shot-outline: #3A4F6B;
+  --shot-head: Georgia, "Times New Roman", serif; --shot-body: var(--sans);
+}
+.shot--saude .shot__page { position: relative; }
+.shot--saude .m-title { margin-top: auto; max-width: 11ch; font-size: max(19px, 5.4cqw); }
+.shot--saude .m-text { max-width: 30ch; }
+.shot--saude .m-title, .shot--saude .m-text, .shot--saude .m-btns { position: relative; z-index: 1; }
+.m-foto {
+  position: absolute; right: 6cqw; top: 15cqw; bottom: 9cqw; width: 30cqw; border-radius: 3px;
+  background: #0B1727 url("../img/shot-nathalia-veras.webp") 50% 25% / cover no-repeat;
+  box-shadow: 0 0 0 1px rgba(255,255,255,.12);
+}
+.m-doc {
+  position: absolute; right: 22cqw; bottom: 6cqw; display: grid; gap: .6cqw; padding: 1.8cqw 2.4cqw;
+  background: #fff; color: #1C2A35; border-radius: 2px; transform: rotate(2deg);
+  box-shadow: 0 10px 24px -12px rgba(0,0,0,.6); font-family: var(--shot-body);
+}
+@container (max-width: 480px) {
+  .shot--saude .m-doc { right: 7cqw; bottom: 5cqw; }
+  .shot--saude .m-text { max-width: 24ch; }
+  .shot--saude .m-nav small { display: none; }
+}
+.m-doc small { font-size: max(8px, 1.5cqw); color: #46535D; }
+.m-doc em { font-style: normal; font-weight: 700; font-size: max(9px, 1.7cqw); padding: .3cqw 1.2cqw; border: 1.5px solid #8B3A2F; border-radius: 50%; justify-self: start; }
+
 /* ---------- Serviços ---------- */
 .services { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(14px, 2vw, 24px); }
 .service {
