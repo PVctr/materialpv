@@ -180,6 +180,42 @@
   }
 
   /* ---------------------------------------------------------------
+     Gráfico de uso da internet: cada barra mostra o que muda para o site
+     - clique, toque ou teclado selecionam; com mouse, passar por cima também
+  ---------------------------------------------------------------- */
+  const bars = $$('.stats .bar');
+  if (bars.length) {
+    const num = $('#statsNum');
+    const label = $('#statsLabel');
+    const text = $('#statsText');
+    const select = (bar) => {
+      if (bar.getAttribute('aria-pressed') === 'true') return;
+      bars.forEach((b) => b.setAttribute('aria-pressed', String(b === bar)));
+      num.textContent = bar.dataset.value;
+      label.textContent = bar.dataset.label;
+      text.textContent = bar.dataset.tip;
+      place();
+    };
+    // No celular, a explicação abre logo abaixo da barra tocada; no desktop, fica ao lado
+    const panel = $('.stats__panel');
+    const body = $('.stats__body');
+    const narrow = matchMedia('(max-width: 1100px)');
+    function place() {
+      const current = bars.find((b) => b.getAttribute('aria-pressed') === 'true');
+      if (narrow.matches && current) current.parentElement.appendChild(panel);
+      else if (panel.parentElement !== body) body.appendChild(panel);
+    }
+    narrow.addEventListener('change', place);
+    place();
+    const fine = matchMedia('(hover: hover) and (pointer: fine)').matches;
+    bars.forEach((bar) => {
+      bar.addEventListener('click', () => select(bar));
+      bar.addEventListener('focus', () => select(bar));
+      if (fine) bar.addEventListener('pointerenter', () => select(bar));
+    });
+  }
+
+  /* ---------------------------------------------------------------
      Hero: campo de barras em 3D
      Canvas 2D com projeção em perspectiva própria, sem bibliotecas.
      - uma onda atravessa o campo; o ponteiro levanta as barras próximas
