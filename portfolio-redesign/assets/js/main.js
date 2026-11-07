@@ -5,7 +5,6 @@
   const root = document.documentElement;
   const $ = (s, c = document) => c.querySelector(s);
   const $$ = (s, c = document) => Array.from(c.querySelectorAll(s));
-  const PHONE = '5521990777088';
   const calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const hasIO = 'IntersectionObserver' in window;
 
@@ -99,7 +98,7 @@
      Navegação: seção atual
   ---------------------------------------------------------------- */
   const navLinks = $$('.nav__link');
-  const sections = ['projetos', 'servicos', 'processo', 'sobre', 'contato']
+  const sections = ['por-que', 'servicos', 'projetos', 'processo', 'sobre', 'contato']
     .map((id) => document.getElementById(id))
     .filter(Boolean);
 
@@ -352,7 +351,7 @@
   ---------------------------------------------------------------- */
   const typed = $('#typed');
   if (typed && !calm) {
-    const words = ['landing pages', 'sites institucionais', 'páginas responsivas', 'sites rápidos'];
+    const words = ['nail designers', 'assistências técnicas', 'escritórios', 'clínicas', 'barbearias', 'espaços para eventos'];
     let w = 0, n = words[0].length, erasing = false;
     const tick = () => {
       const word = words[w];
@@ -382,73 +381,5 @@
     };
     new IntersectionObserver(([e]) => { heroIn = e.isIntersecting; update(); }, { threshold: 0.2 }).observe(heroEl);
     new IntersectionObserver(([e]) => { contactIn = e.isIntersecting; update(); }, { threshold: 0.1 }).observe(contactEl);
-  }
-
-  /* ---------------------------------------------------------------
-     Formulário → mensagem de WhatsApp
-  ---------------------------------------------------------------- */
-  const form = $('#briefing');
-  if (form) {
-    const tipo = $('#tipo');
-    const objetivo = $('#objetivo');
-    const nome = $('#nome');
-    const contador = $('#contador');
-    const erro = $('#tipo-erro');
-    const status = $('#status');
-    const copiar = $('#copiar');
-
-    const message = () => {
-      const lines = ['Olá, Paulo! Vim pelo seu portfólio e quero falar sobre um projeto.', '', 'Tipo de site: ' + tipo.value];
-      if (objetivo.value.trim()) lines.push('Objetivo: ' + objetivo.value.trim());
-      if (nome.value.trim()) lines.push('Nome: ' + nome.value.trim());
-      return lines.join('\n');
-    };
-
-    const valid = () => {
-      const ok = Boolean(tipo.value);
-      erro.hidden = ok;
-      if (ok) tipo.removeAttribute('aria-invalid');
-      else { tipo.setAttribute('aria-invalid', 'true'); tipo.focus(); }
-      return ok;
-    };
-
-    const say = (text) => {
-      status.textContent = '';
-      requestAnimationFrame(() => { status.textContent = text; });
-    };
-
-    objetivo.addEventListener('input', () => { contador.textContent = String(objetivo.value.length); });
-    tipo.addEventListener('change', () => { if (tipo.value) valid(); });
-
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      if (!valid()) return;
-      const url = 'https://wa.me/' + PHONE + '?text=' + encodeURIComponent(message());
-      // Link real em nova aba: funciona em qualquer navegador e não é barrado como pop-up.
-      const a = document.createElement('a');
-      a.href = url; a.target = '_blank'; a.rel = 'noopener noreferrer';
-      document.body.appendChild(a); a.click(); a.remove();
-      say('Conversa aberta no WhatsApp.');
-    });
-
-    copiar.addEventListener('click', async () => {
-      if (!valid()) return;
-      const text = message();
-      let ok = false;
-      try {
-        await navigator.clipboard.writeText(text);
-        ok = true;
-      } catch (err) {
-        const ta = document.createElement('textarea');
-        ta.value = text; ta.setAttribute('readonly', ''); ta.style.cssText = 'position:fixed;opacity:0;top:0;left:0';
-        document.body.appendChild(ta); ta.select();
-        try { ok = document.execCommand('copy'); } catch (e2) {}
-        ta.remove();
-      }
-      const label = copiar.textContent;
-      copiar.textContent = ok ? 'Mensagem copiada' : 'Não foi possível copiar';
-      say(copiar.textContent);
-      setTimeout(() => { copiar.textContent = label; }, 2200);
-    });
   }
 })();
