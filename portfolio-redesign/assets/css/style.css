@@ -484,6 +484,10 @@ body.menu-open .header__inner {
   --shot-bg: #14253B; --shot-fg: #ffffff; --shot-bar: #0B1727; --shot-line: #2A3D57; --shot-dot: #2A3D57;
   --shot-url: #14253B; --shot-muted: #AEBBCB;
 }
+.shot--bolonha {
+  --shot-bg: #141518; --shot-fg: #f7f7f4; --shot-bar: #000000; --shot-line: #2c2e33; --shot-dot: #2c2e33;
+  --shot-url: #141518; --shot-muted: #a19d93;
+}
 
 /* ---------- Por que ter um site ---------- */
 .why {
