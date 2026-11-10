@@ -492,6 +492,10 @@ body.menu-open .header__inner {
   --shot-bg: #0e0e0f; --shot-fg: #e9e6df; --shot-bar: #19191b; --shot-line: #38383b; --shot-dot: #38383b;
   --shot-url: #0e0e0f; --shot-muted: #8f8d88;
 }
+.shot--policlinica {
+  --shot-bg: #0b0d4f; --shot-fg: #ffffff; --shot-bar: #080a3c; --shot-line: #262a78; --shot-dot: #262a78;
+  --shot-url: #0b0d4f; --shot-muted: #aab0d6;
+}
 
 /* ---------- Por que ter um site ---------- */
 .why {
