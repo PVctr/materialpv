@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Salão de Beleza Laranjeiras | Releitura demonstrativa do site</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="Salão de beleza em Laranjeiras, Zona Sul do Rio: corte, coloração, hidratação, manicure, unha de fibra de vidro e acrigel, design de sobrancelhas, cílios, depilação, estética e spa. Rua das Laranjeiras, 280, Loja E. Agende pelo WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..600&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --marfim:#F8F2EA; --marfim-2:#F1E6DC; --blush:#EBD3CD;
+  --tinta:#2A161C; --tinta-2:#5E4A4F;
+  --rosa:#B4124F; --rosa-escuro:#8A0B3B;
+  --castanho:#4A2A1E; --caramelo:#C0864C;
+  --serif:"Bodoni Moda","Didot","Bodoni MT",Georgia,serif;
+  --sans:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --topo:68px; --margem:clamp(20px,5vw,72px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--marfim);color:var(--tinta);font:400 1.0625rem/1.6 var(--sans)}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.05;margin:0;letter-spacing:-.01em}
+h2{font-size:clamp(2.1rem,5vw,3.6rem)}
+p{margin:0}
+section[id],div[id]{scroll-margin-top:calc(var(--topo) + 12px)}
+:focus-visible{outline:3px solid var(--rosa);outline-offset:3px;border-radius:4px}
+.pular{position:absolute;left:-999px;top:8px;background:var(--tinta);color:var(--marfim);padding:10px 16px;z-index:100}
+.pular:focus{left:8px}
+.miolo{padding-inline:var(--margem);max-width:1320px;margin-inline:auto}
+
+/* Botões */
+.btn{display:inline-flex;align-items:center;gap:.55em;min-height:48px;padding:.7em 1.35em;border-radius:999px;border:1.5px solid var(--tinta);font:600 1rem/1.2 var(--sans);text-decoration:none;cursor:pointer;background:transparent;color:var(--tinta);transition:background-color .18s,color .18s,transform .12s,border-color .18s}
+.btn:hover{background:var(--tinta);color:var(--marfim)}
+.btn:active{transform:scale(.97)}
+.btn-wa{background:var(--rosa);border-color:var(--rosa);color:#fff}
+.btn-wa:hover{background:var(--rosa-escuro);border-color:var(--rosa-escuro);color:#fff}
+.btn svg{width:1.15em;height:1.15em;flex:none}
+.acoes{display:flex;flex-wrap:wrap;gap:12px}
+
+/* Aviso de projeto demonstrativo */
+.aviso-demo{background:var(--tinta);color:var(--marfim);font-size:.9rem;line-height:1.4;padding:10px var(--margem);text-align:center}
+.aviso-demo a{color:#FFB3CF;text-underline-offset:3px;display:inline-block;padding-block:4px}
+.aviso-demo :focus-visible{outline-color:#FFB3CF}
+
+/* Topo */
+.topo{position:sticky;top:0;z-index:50;height:var(--topo);background:rgba(248,242,234,.94);backdrop-filter:blur(8px);border-bottom:1px solid rgba(42,22,28,.12)}
+.topo .miolo{height:100%;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.marca{font-family:var(--serif);font-size:1.3rem;font-weight:600;text-decoration:none;line-height:1;white-space:nowrap}
+.marca small{display:block;font:500 .72rem/1.3 var(--sans);color:var(--tinta-2)}
+.menu{display:flex;align-items:center;gap:clamp(14px,2.4vw,32px)}
+.menu a:not(.btn){text-decoration:none;font-weight:500;padding:10px 2px;border-bottom:2px solid transparent;transition:border-color .18s,color .18s}
+.menu a:not(.btn):hover{border-color:var(--rosa);color:var(--rosa-escuro)}
+.menu .btn{min-height:42px;padding:.5em 1.1em}
+.menu-botao{display:none}
+@media (max-width:820px){
+  .menu-botao{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border:0;background:none;color:var(--tinta);cursor:pointer;border-radius:50%}
+  .menu-botao:active{background:var(--blush)}
+  .menu-botao span,.menu-botao span::before,.menu-botao span::after{content:"";display:block;width:24px;height:2px;background:currentColor;transition:transform .2s,opacity .2s}
+  .menu-botao span{position:relative}
+  .menu-botao span::before{position:absolute;top:-7px}
+  .menu-botao span::after{position:absolute;top:7px}
+  .menu-botao[aria-expanded=true] span{background:transparent}
+  .menu-botao[aria-expanded=true] span::before{transform:translateY(7px) rotate(45deg)}
+  .menu-botao[aria-expanded=true] span::after{transform:translateY(-7px) rotate(-45deg)}
+  .menu{position:absolute;left:0;right:0;top:var(--topo);flex-direction:column;align-items:stretch;gap:0;background:var(--marfim);padding:8px var(--margem) 20px;border-bottom:1px solid rgba(42,22,28,.15);visibility:hidden;opacity:0;transform:translateY(-8px);transition:opacity .2s,transform .2s,visibility 0s .2s}
+  .menu.aberto{visibility:visible;opacity:1;transform:none;transition:opacity .2s,transform .2s}
+  .menu a:not(.btn){padding:14px 0;border-bottom:1px solid rgba(42,22,28,.1);font-size:1.15rem}
+  .menu .btn{margin-top:16px;justify-content:center;min-height:48px}
+}
+
+/* Fotos com reserva para falha de mídia */
+.foto{position:relative;margin:0;overflow:hidden;background:
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='240' fill='none' stroke='%23B4124F' stroke-opacity='.16' stroke-width='2'%3E%3Cpath d='M30-10C90 60-10 120 50 250M70-10C130 60 30 120 90 250M110-10C170 60 70 120 130 250'/%3E%3C/svg%3E"),
+  linear-gradient(160deg,var(--blush),var(--marfim-2))}
+.foto img{width:100%;height:100%;object-fit:cover}
+.foto.falhou img{display:none}
+.foto.falhou::after{content:attr(data-legenda);position:absolute;left:16px;right:16px;bottom:14px;font:italic 500 1.05rem/1.25 var(--serif);color:var(--tinta)}
+
+/* Hero */
+.hero{padding-block:clamp(28px,5vw,64px) clamp(36px,6vw,80px)}
+.hero .miolo{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(24px,5vw,80px);align-items:end}
+.hero h1{font-size:clamp(3rem,8.4vw,7.2rem);line-height:.92;letter-spacing:-.025em}
+.hero h1 em{font-style:italic;font-weight:400}
+.hero .onde{margin-top:clamp(18px,2.5vw,30px);font-size:clamp(1.1rem,1.6vw,1.35rem);max-width:30em;color:var(--tinta-2)}
+.hero .acoes{margin-top:clamp(22px,3vw,36px)}
+.hero .horario{margin-top:18px;font-size:.95rem;color:var(--tinta-2)}
+.hero .foto{aspect-ratio:5/6;border-radius:999px 999px 0 0;max-height:74vh;justify-self:end;width:100%}
+@media (max-width:820px){
+  .hero .miolo{grid-template-columns:1fr}
+  .hero .foto{aspect-ratio:4/3.4;border-radius:140px 140px 0 0;order:2;max-height:46vh}
+}
+
+/* Cena do corte */
+.corte{position:relative;height:calc(100vh + 130vh);background:linear-gradient(var(--marfim),var(--marfim-2))}
+.palco{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;padding-top:var(--topo)}
+.palco-texto{position:absolute;z-index:2;left:var(--margem);top:50%;transform:translateY(-42%);width:min(36%,460px)}
+.palco-texto h2{font-size:clamp(1.9rem,3.6vw,3.2rem)}
+.palco-texto p{margin-top:16px;color:var(--tinta-2)}
+.palco-texto .acoes{margin-top:22px}
+.cena{position:absolute;inset:0;pointer-events:none}
+.cena svg{width:100%;height:100%;display:block;overflow:visible}
+#tesoura{filter:drop-shadow(0 6px 8px rgba(42,22,28,.22))}
+.painel{position:absolute;z-index:3;left:48%;top:50%;transform:translateY(-44%);width:min(46%,520px);background:var(--tinta);color:var(--marfim);padding:clamp(22px,3vw,40px);border-radius:28px 28px 28px 4px;visibility:hidden;will-change:clip-path}
+.painel h3{font-size:clamp(1.7rem,2.8vw,2.5rem)}
+.painel p{margin-top:8px;color:#E6D3D3}
+.painel ul{list-style:none;margin:18px 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:0 18px}
+.painel li a{display:flex;justify-content:space-between;align-items:center;min-height:46px;text-decoration:none;border-bottom:1px solid rgba(248,242,234,.22);font-weight:500;transition:color .18s,padding .18s}
+.painel li a:hover{color:#FFB3CF;padding-left:6px}
+.painel li a span{font:italic 400 .95rem var(--serif);opacity:.75}
+.painel :focus-visible{outline-color:#FFB3CF}
+@media (max-width:820px){
+  .corte{height:calc(100vh + 85vh)}
+  .palco-texto{left:var(--margem);right:var(--margem);top:calc(var(--topo) + 18px);transform:none;width:auto}
+  .palco-texto h2{font-size:clamp(1.55rem,6.4vw,2.1rem)}
+  .palco-texto p{display:none}
+  .palco-texto .acoes{margin-top:14px}
+  .painel{left:5%;right:5%;width:auto;top:auto;bottom:3%;transform:none;padding:20px;border-radius:22px 22px 22px 4px}
+  .painel li a{min-height:42px}
+}
+/* Composição estática (prefers-reduced-motion) */
+.corte.estatico{height:auto;padding-block:48px}
+.corte.estatico .palco{position:static;height:auto;overflow:visible;padding:0 var(--margem);display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center;max-width:1320px;margin-inline:auto}
+.corte.estatico .palco-texto,.corte.estatico .painel{position:static;transform:none;width:auto;visibility:visible}
+.corte.estatico .cena{position:relative;height:340px;inset:auto;overflow:hidden}
+.corte.estatico .painel{grid-column:1/-1}
+@media (max-width:820px){.corte.estatico .palco{grid-template-columns:1fr}.corte.estatico .palco-texto p{display:block}.corte.estatico .cena{height:260px}}
+
+/* Serviços */
+.bloco{padding-block:clamp(56px,9vw,128px)}
+.bloco-topo{display:grid;grid-template-columns:1fr 1fr;gap:24px 64px;align-items:end;margin-bottom:clamp(28px,5vw,64px)}
+.bloco-topo p{color:var(--tinta-2);max-width:34em}
+@media (max-width:820px){.bloco-topo{grid-template-columns:1fr}}
+.destaques{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(14px,2.2vw,32px);align-items:start}
+.destaque{display:flex;flex-direction:column;gap:12px}
+.destaque h3{font-size:1.55rem}
+.destaque p{font-size:.98rem;color:var(--tinta-2)}
+.destaque a{align-self:flex-start;font-weight:600;color:var(--rosa-escuro);text-underline-offset:4px;min-height:44px;display:inline-flex;align-items:center}
+.destaque a:hover{color:var(--tinta)}
+.destaque:nth-child(1){grid-column:1/5}.destaque:nth-child(1) .foto{aspect-ratio:3/4;border-radius:999px 999px 0 0}
+.destaque:nth-child(2){grid-column:5/10;margin-top:72px}.destaque:nth-child(2) .foto{aspect-ratio:3/2}
+.destaque:nth-child(3){grid-column:10/13}.destaque:nth-child(3) .foto{aspect-ratio:3/4.4;border-radius:0 0 0 120px}
+.destaque:nth-child(4){grid-column:2/6}.destaque:nth-child(4) .foto{aspect-ratio:1;border-radius:50%}
+.destaque:nth-child(5){grid-column:7/13;margin-top:-40px}.destaque:nth-child(5) .foto{aspect-ratio:16/9;border-radius:0 120px 0 0}
+@media (max-width:820px){
+  .destaques{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:calc(var(--margem)*-1);padding-inline:var(--margem);padding-bottom:12px}
+  .destaque{flex:0 0 76%;scroll-snap-align:center;margin-top:0!important}
+  .destaque .foto{aspect-ratio:4/5!important}
+}
+.london{margin-top:clamp(40px,6vw,88px);background:var(--blush);border-radius:4px 80px 4px 4px;padding:clamp(24px,4vw,48px);display:flex;flex-wrap:wrap;gap:20px 48px;align-items:center;justify-content:space-between}
+.london h3{font-size:clamp(1.9rem,4vw,3rem);font-style:italic}
+.london p{margin-top:6px;max-width:32em}
+
+.catalogo{margin-top:clamp(48px,7vw,104px)}
+.catalogo>h3{font-size:clamp(1.7rem,3.4vw,2.5rem);margin-bottom:20px}
+.abas{display:flex;gap:8px;overflow-x:auto;padding:4px 2px 12px;margin-inline:-2px}
+.aba{flex:none;min-height:46px;padding:.5em 1.15em;border-radius:999px;border:1.5px solid rgba(42,22,28,.35);background:transparent;color:var(--tinta);font:500 1rem var(--sans);cursor:pointer;transition:background-color .18s,color .18s,border-color .18s,transform .12s}
+.aba:hover{border-color:var(--tinta)}
+.aba:active{transform:scale(.96)}
+.aba[aria-selected=true]{background:var(--tinta);border-color:var(--tinta);color:var(--marfim)}
+.aba-painel{padding-top:20px;animation:trocar .22s ease-out}
+@keyframes trocar{from{opacity:0;transform:translateY(6px)}}
+.grupos{columns:2;column-gap:clamp(28px,5vw,80px)}
+@media (max-width:820px){.grupos{columns:1}}
+.grupo{break-inside:avoid;margin-bottom:34px}
+.grupo h4{font:italic 500 1.5rem/1.1 var(--serif);margin:0 0 6px;color:var(--rosa-escuro)}
+.grupo ul{list-style:none;margin:0;padding:0}
+.servico{display:grid;grid-template-columns:1fr auto;gap:2px 16px;align-items:center;padding:12px 8px;margin-inline:-8px;border-bottom:1px solid rgba(42,22,28,.14);text-decoration:none;border-radius:6px;transition:background-color .15s}
+.servico:hover{background:rgba(180,18,79,.07)}
+.servico:active{background:rgba(180,18,79,.14)}
+.servico strong{font-weight:600}
+.servico small{grid-column:1;font-size:.93rem;color:var(--tinta-2)}
+.servico i{grid-row:1/3;grid-column:2;font:600 .9rem var(--sans);font-style:normal;color:var(--rosa-escuro);white-space:nowrap}
+.nota{font-size:.95rem;color:var(--tinta-2);margin-bottom:16px;max-width:44em}
+
+/* Promoções */
+.promos{background:var(--tinta);color:var(--marfim)}
+.promos .bloco-topo p{color:#E0CFCF}
+.promos :focus-visible{outline-color:#FFB3CF}
+.cupons{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px}
+.cupom{background:var(--marfim);color:var(--tinta);padding:22px 22px 18px;display:flex;flex-direction:column;gap:8px;position:relative;border-radius:4px;
+  -webkit-mask:radial-gradient(circle 13px at 0 62%,#0000 98%,#000) left/51% 100% no-repeat,radial-gradient(circle 13px at 100% 62%,#0000 98%,#000) right/51% 100% no-repeat;
+  mask:radial-gradient(circle 13px at 0 62%,#0000 98%,#000) left/51% 100% no-repeat,radial-gradient(circle 13px at 100% 62%,#0000 98%,#000) right/51% 100% no-repeat}
+.cupom h3{font:600 1rem/1.3 var(--sans);letter-spacing:0}
+.cupom .pct{font:500 4.2rem/.9 var(--serif);color:var(--rosa)}
+.cupom .regra{font-size:.95rem;min-height:3em}
+.cupom .validade{font-size:.88rem;font-weight:600;padding-top:14px;margin-top:6px;border-top:2px dotted rgba(42,22,28,.35)}
+.cupom .codigo{display:flex;align-items:center;justify-content:space-between;gap:8px;background:var(--blush);padding:4px 4px 4px 14px;border-radius:999px;font-weight:600;letter-spacing:.06em}
+.cupom .copiar{min-height:40px;padding:0 14px;border-radius:999px;border:0;background:var(--tinta);color:var(--marfim);font:600 .85rem var(--sans);letter-spacing:0;cursor:pointer;transition:background-color .15s,transform .12s}
+.cupom .copiar:hover{background:var(--rosa-escuro)}
+.cupom .copiar:active{transform:scale(.95)}
+.cupom a{font-weight:600;color:var(--rosa-escuro);min-height:44px;display:inline-flex;align-items:center;text-underline-offset:4px}
+.cupom.vencido .pct{color:var(--tinta-2)}
+.cupom.vencido .validade{color:#8A1E1E}
+.vencidos{margin-top:40px}
+.vencidos summary{font:italic 500 1.35rem/1.3 var(--serif);cursor:pointer;padding:14px 0;border-block:1px solid rgba(248,242,234,.25);transition:color .18s}
+.vencidos summary:hover{color:#FFB3CF}
+.vencidos .nota{margin-top:16px}
+.destaque:nth-child(4) .foto.falhou::after{text-align:center;bottom:42%}
+.promos .nota{color:#E0CFCF}
+.promos .nota a{color:#FFB3CF}
+
+/* Sobre */
+.sobre .miolo{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(24px,6vw,96px);align-items:center}
+.sobre .foto{aspect-ratio:5/4;border-radius:4px 4px 160px 4px}
+.sobre p{margin-top:18px;max-width:36em}
+.sobre p:first-of-type{font:400 clamp(1.25rem,2vw,1.6rem)/1.35 var(--serif);margin-top:22px}
+@media (max-width:820px){.sobre .miolo{grid-template-columns:1fr}}
+
+/* Contato */
+.contato{background:var(--marfim-2)}
+.contato-grade{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(28px,6vw,96px)}
+@media (max-width:820px){.contato-grade{grid-template-columns:1fr}}
+.contato dl{margin:28px 0 0;display:grid;gap:18px}
+.contato dt{font-size:.92rem;color:var(--tinta-2)}
+.contato dd{margin:2px 0 0;font-size:1.15rem;font-weight:500}
+.contato dd a{text-underline-offset:4px;display:inline-block;padding-block:4px}
+.contato dd a:hover{color:var(--rosa-escuro)}
+.contato .acoes{margin-top:30px}
+.horarios{width:100%;border-collapse:collapse;margin-top:16px}
+.horarios caption{text-align:left;font:500 1.7rem var(--serif)}
+.horarios th,.horarios td{text-align:left;padding:11px 4px;border-bottom:1px solid rgba(42,22,28,.16);font-weight:400}
+.horarios td{text-align:right;font-variant-numeric:tabular-nums}
+.horarios tr.hoje th,.horarios tr.hoje td{font-weight:600;color:var(--rosa-escuro)}
+.horarios tr.fechado td{color:var(--tinta-2)}
+
+/* Rodapé */
+.rodape{background:var(--tinta);color:#E6D8D8;padding-block:48px 36px;font-size:.95rem}
+.rodape .miolo{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:28px 48px}
+@media (max-width:820px){.rodape .miolo{grid-template-columns:1fr}}
+.rodape strong{font:500 1.35rem var(--serif);color:var(--marfim);display:block;margin-bottom:8px}
+.rodape ul{list-style:none;margin:0;padding:0}
+.rodape a{display:inline-block;padding-block:6px;text-underline-offset:4px}
+.rodape a:hover{color:#FFB3CF}
+.rodape :focus-visible{outline-color:#FFB3CF}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}
+}
+</style>
+</head>
+<body>
+<a class="pular" href="#conteudo">Ir para o conteúdo</a>
+
+<p class="aviso-demo">Projeto demonstrativo: releitura do site do Salão de Beleza Laranjeiras feita por Paulo Victor para o portfólio. Não é o site oficial do salão. <a href="https://www.salaodebelezalaranjeiras.com.br/">Ir para o site oficial</a> · <a href="../#projetos">Voltar ao portfólio</a></p>
+
+<header class="topo">
+  <div class="miolo">
+    <a class="marca" href="#inicio">Salão de Beleza Laranjeiras<small>Laranjeiras, Rio de Janeiro</small></a>
+    <button class="menu-botao" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu"><span></span></button>
+    <nav class="menu" id="menu" aria-label="Principal">
+      <a href="#servicos">Serviços</a>
+      <a href="#promocoes">Promoções</a>
+      <a href="#sobre">O salão</a>
+      <a href="#contato">Contato e horários</a>
+      <a class="btn btn-wa" data-wa="geral" href="https://wa.me/5521980195867">Agendar</a>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo">
+<section class="hero" id="inicio">
+  <div class="miolo">
+    <div>
+      <h1>Salão de Beleza <em>Laranjeiras</em></h1>
+      <p class="onde">Corte, coloração, unhas, sobrancelhas e estética na Rua das Laranjeiras, 280, na Zona Sul do Rio de Janeiro.</p>
+      <div class="acoes">
+        <a class="btn btn-wa" data-wa="geral" href="https://wa.me/5521980195867"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.300-1.200l-.3-.2-3 .8.8-2.900-.2-.3A8.200 8.200 0 1 1 12 20.200Zm4.500-6.100c-.2-.1-1.500-.7-1.700-.8s-.4-.1-.6.100-.6.800-.8 1-.3.200-.5.100a6.700 6.700 0 0 1-3.300-2.900c-.3-.4.300-.400.700-1.300.1-.2 0-.3 0-.4l-.8-1.800c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.100-.7.300a2.800 2.800 0 0 0-.9 2.100c0 1.200.9 2.400 1 2.600s1.800 2.700 4.300 3.800c1.600.7 2.200.7 3 .6.500-.1 1.500-.6 1.700-1.200s.2-1.100.1-1.200-.2-.2-.4-.3Z"/></svg>Agendar pelo WhatsApp</a>
+        <a class="btn" href="#servicos">Ver serviços</a>
+      </div>
+      <p class="horario">Terça e quarta, 9h às 18h. Quinta a sábado, 9h às 19h.</p>
+    </div>
+    <figure class="foto" data-legenda="Morena iluminada feita no salão">
+      <img data-midia="hero" alt="Cliente com cabelo longo ondulado e mechas em tom caramelo, finalizado no salão" width="1080" height="1302" fetchpriority="high">
+    </figure>
+  </div>
+</section>
+
+<!-- Cena do corte: o progresso da rolagem desta seção controla a tesoura -->
+<section class="corte" id="corte" aria-label="Apresentação dos serviços">
+  <div class="palco">
+    <div class="palco-texto">
+      <h2>Do corte ao acabamento, tudo no mesmo endereço.</h2>
+      <p>Cabelo, unhas, sobrancelhas, cílios, depilação, estética e spa, com uma equipe especializada e produtos de alta qualidade.</p>
+      <div class="acoes"><a class="btn btn-wa" data-wa="geral" href="https://wa.me/5521980195867">Agendar pelo WhatsApp</a></div>
+    </div>
+    <div class="cena">
+      <svg id="cena-svg" aria-hidden="true" focusable="false">
+        <defs>
+          <linearGradient id="aco" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F4F6F8"/><stop offset=".45" stop-color="#B7BEC8"/><stop offset=".55" stop-color="#8C95A1"/><stop offset="1" stop-color="#DDE2E8"/></linearGradient>
+          <linearGradient id="aco2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E9ECF0"/><stop offset=".5" stop-color="#868F9B"/><stop offset="1" stop-color="#D5DAE0"/></linearGradient>
+          <clipPath id="surgir"><rect id="surgir-rect" x="-50" y="-50" width="10" height="10"/></clipPath>
+          <g id="peca">
+            <path d="M16-9 L-166-1.200 Q-173 .5 -166 2.200 L-6 7 L16 6Z" fill="url(#aco)"/>
+            <path d="M10-6.500 L-160-.4" stroke="#fff" stroke-opacity=".75" stroke-width="1.200" fill="none"/>
+            <path d="M-4-9 L40-5 C70-1 86 12 106 26 L99 36 C80 23 64 14 36 9 L-4 7Z" fill="url(#aco2)"/>
+            <circle cx="128" cy="42" r="22" fill="none" stroke="url(#aco2)" stroke-width="9"/>
+            <circle cx="128" cy="42" r="26" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="1"/>
+          </g>
+        </defs>
+        <g id="mecha" clip-path="url(#surgir)">
+          <g id="mecha-presa"></g>
+          <g id="mecha-ponta"></g>
+        </g>
+        <g id="tesoura">
+          <g id="lamina-b"><g transform="scale(1,-1)"><use href="#peca"/></g></g>
+          <g id="lamina-a"><use href="#peca"/><path d="M146 56 q14 12 28 5" fill="none" stroke="url(#aco2)" stroke-width="6" stroke-linecap="round"/></g>
+          <circle r="6.500" fill="#6F7884"/><circle r="3" fill="#E9ECF0"/><path d="M-3 0h6" stroke="#59616C" stroke-width="1.200"/>
+        </g>
+      </svg>
+    </div>
+    <div class="painel" id="painel">
+      <h3>Serviços</h3>
+      <p>Escolha por onde começar.</p>
+      <ul>
+        <li><a href="#catalogo" data-cat="cabelo">Cabelo <span>24</span></a></li>
+        <li><a href="#catalogo" data-cat="unhas">Unhas <span>16</span></a></li>
+        <li><a href="#catalogo" data-cat="estetica">Estética e spa <span>17</span></a></li>
+        <li><a href="#catalogo" data-cat="depilacao">Depilação</a></li>
+        <li><a href="#catalogo" data-cat="cilios">Cílios</a></li>
+        <li><a href="#catalogo" data-cat="sobrancelhas">Sobrancelhas</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="bloco" id="servicos">
+  <div class="miolo">
+    <div class="bloco-topo">
+      <h2>Os mais pedidos do salão em Laranjeiras</h2>
+      <p>Toque em um serviço para abrir o WhatsApp com o procedimento já escrito na mensagem. O catálogo completo vem logo abaixo.</p>
+    </div>
+    <div class="destaques" id="destaques"></div>
+
+    <div class="london">
+      <div>
+        <h3>Escova London</h3>
+        <p>O liso perfeito, sem formol, com brilho e acabamento sofisticado.</p>
+      </div>
+      <a class="btn btn-wa" data-servico="Escova London" href="https://wa.me/5521980195867">Agendar Escova London</a>
+    </div>
+
+    <div class="catalogo" id="catalogo">
+      <h3>Catálogo completo</h3>
+      <div class="abas" role="tablist" aria-label="Categorias de serviços" id="abas"></div>
+      <div id="aba-painel" class="aba-painel" role="tabpanel" tabindex="0"></div>
+    </div>
+  </div>
+</section>
+
+<section class="bloco promos" id="promocoes">
+  <div class="miolo">
+    <div class="bloco-topo">
+      <h2>Promoções e cupons de desconto</h2>
+      <p>Informe o código do cupom ao agendar pelo WhatsApp. Cada cupom segue a regra e a validade indicadas no cartão.</p>
+    </div>
+    <div class="cupons" id="cupons-validos"></div>
+    <details class="vencidos">
+    <summary>Ver 8 cupons com validade encerrada em 31/12/2024</summary>
+    <p class="nota">Estes cupons ainda aparecem no site do salão com a data vencida. Pergunte pelo WhatsApp se foram renovados ou veja a <a href="https://www.salaodebelezalaranjeiras.com.br/promocao-salao-de-beleza-laranjeiras">página original de promoções</a>.</p>
+    <div class="cupons" id="cupons-vencidos"></div>
+    </details>
+  </div>
+</section>
+
+<section class="bloco sobre" id="sobre">
+  <div class="miolo">
+    <figure class="foto" data-legenda="O salão por dentro, na Rua das Laranjeiras, 280">
+      <img data-midia="salao" alt="Interior do salão, com bancadas de manicure, cadeiras de cabeleireiro e equipe atendendo" width="790" height="641" loading="lazy">
+    </figure>
+    <div>
+      <h2>Um salão de bairro, completo e acolhedor</h2>
+      <p>Um espaço dedicado a realçar a sua beleza, com tempo para cuidado e bem-estar.</p>
+      <p>O Salão de Beleza Laranjeiras fica na Rua das Laranjeiras, 280, Loja E. A equipe é formada por profissionais especializados, que atendem cada cliente com atenção personalizada.</p>
+      <p>Cortes, coloração, tratamentos capilares, manicure, maquiagem, estética, depilação, massagens e podologia ficam no mesmo lugar, sempre com produtos de alta qualidade. Dá para passar o dia inteiro cuidando de você.</p>
+    </div>
+  </div>
+</section>
+
+<section class="bloco contato" id="contato">
+  <div class="miolo contato-grade">
+    <div>
+      <h2>Agende seu horário</h2>
+      <dl>
+        <div><dt>WhatsApp</dt><dd><a data-wa="geral" href="https://wa.me/5521980195867">(21) 98019-5867</a></dd></div>
+        <div><dt>Telefone</dt><dd><a href="tel:+552131760176">(21) 3176-0176</a></dd></div>
+        <div><dt>E-mail</dt><dd><a href="mailto:salao@salaodebelezalaranjeiras.com.br">salao@salaodebelezalaranjeiras.com.br</a><br><a href="mailto:salaodebelezalaranjeiras@gmail.com">salaodebelezalaranjeiras@gmail.com</a></dd></div>
+        <div><dt>Endereço</dt><dd>Rua das Laranjeiras, 280, Loja E<br>Laranjeiras, Rio de Janeiro, RJ, CEP 22240-003</dd></div>
+      </dl>
+      <div class="acoes">
+        <a class="btn btn-wa" data-wa="geral" href="https://wa.me/5521980195867">Agendar pelo WhatsApp</a>
+        <a class="btn" href="https://www.google.com/maps/dir/?api=1&destination=Rua+das+Laranjeiras%2C+280+-+Loja+E%2C+Laranjeiras%2C+Rio+de+Janeiro+-+RJ%2C+22240-003">Traçar rota</a>
+        <a class="btn" href="https://www.trinks.com/salao-laranjeiras-hall">Agendar online pelo Trinks</a>
+      </div>
+    </div>
+    <div>
+      <table class="horarios" id="horarios">
+        <caption>Horários</caption>
+        <tbody>
+          <tr data-dia="1" class="fechado"><th scope="row">Segunda</th><td>Fechado</td></tr>
+          <tr data-dia="2"><th scope="row">Terça</th><td>9h às 18h</td></tr>
+          <tr data-dia="3"><th scope="row">Quarta</th><td>9h às 18h</td></tr>
+          <tr data-dia="4"><th scope="row">Quinta</th><td>9h às 19h</td></tr>
+          <tr data-dia="5"><th scope="row">Sexta</th><td>9h às 19h</td></tr>
+          <tr data-dia="6"><th scope="row">Sábado</th><td>9h às 19h</td></tr>
+          <tr data-dia="0" class="fechado"><th scope="row">Domingo</th><td>Fechado</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="rodape">
+  <div class="miolo">
+    <div>
+      <strong>Salão de Beleza Laranjeiras</strong>
+      Salão de Beleza &amp; Estética Laranjeiras Ltda<br>
+      CNPJ 44.221.533/0001-79<br>
+      Rua das Laranjeiras, 280, Loja E, Laranjeiras<br>
+      Rio de Janeiro, RJ, 22240-003<br>
+      (21) 3176-0176 / (21) 98019-5867
+    </div>
+    <ul aria-label="Site original">
+      <li><a href="https://www.salaodebelezalaranjeiras.com.br/">Site original</a></li>
+      <li><a href="https://www.salaodebelezalaranjeiras.com.br/servicos-laranjeiras-hall">Serviços</a></li>
+      <li><a href="https://www.salaodebelezalaranjeiras.com.br/promocao-salao-de-beleza-laranjeiras">Promoções</a></li>
+      <li><a href="https://www.salaodebelezalaranjeiras.com.br/agendar">Agende seu horário</a></li>
+      <li><a href="https://www.salaodebelezalaranjeiras.com.br/fale-conosco-salao-laranjeiras-hall">Fale conosco</a></li>
+    </ul>
+    <ul aria-label="Redes sociais">
+      <li><a href="https://www.instagram.com/salaodebelezalaranjeiras/">Instagram</a></li>
+      <li><a href="https://www.facebook.com/laranjeirashall">Facebook</a></li>
+      <li><a data-wa="geral" href="https://wa.me/5521980195867">WhatsApp</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+/* =====================================================================
+   1. CONTEÚDO EDITÁVEL — contatos, mídias, serviços, promoções
+   ===================================================================== */
+const SALAO = {
+  whatsapp: "5521980195867",
+  mensagemGeral: "Oi! Gostaria de fazer meu agendamento.",
+  mensagemServico: s => `Oi! Gostaria de agendar: ${s}.`,
+  mensagemCupom: c => `Oi! Gostaria de agendar usando o cupom ${c.codigo} (${c.titulo}).`
+};
+
+/* Fotos hospedadas no site atual do salão (Wix). Troque as URLs aqui. */
+const W = "https://static.wixstatic.com/media/";
+const MIDIAS = {
+  hero:         W + "2fe776_e4de7f7a82a04332b56dd87344ebbc03~mv2.jpg",
+  salao:        W + "2fe776_c3f58d64903b46499259b87121dde08d~mv2.jpg",
+  corte:        W + "2fe776_f7026b37c9fe4a26b5974c3dd3510d29~mv2.jpg",
+  hidratacao:   W + "2fe776_6338c248f0a64a47914f5588784c1ccd~mv2.jpg",
+  coloracao:    W + "2fe776_e4de7f7a82a04332b56dd87344ebbc03~mv2.jpg",
+  fibra:        W + "2fe776_21410fc8828c4230be0a48024ddea822~mv2.png/v1/fill/w_800,h_800,q_90,enc_auto/fibra.png",
+  sobrancelhas: W + "2fe776_6171daaf116e484da567ef6752bc3789~mv2.jpeg"
+};
+
+const DESTAQUES = [
+  { nome: "Corte", midia: "corte", alt: "Corte chanel ondulado na altura do queixo", texto: "Feminino, masculino, infantil, franja e corte bordado, pensados para o seu estilo e formato de rosto." },
+  { nome: "Coloração", midia: "coloracao", alt: "Cabelo longo com mechas iluminadas em tom caramelo", texto: "Coloração Inoa sem amônia, mechas e morena iluminada." },
+  { nome: "Hidratação", midia: "hidratacao", alt: "Cabelo cacheado definido e com brilho", texto: "Kérastase, L’Oréal, Braé, ampolas e hidratação para cachos." },
+  { nome: "Unha de fibra de vidro", midia: "fibra", alt: "Mãos com unhas alongadas em fibra de vidro, esmaltação rosada com brilho", texto: "Alongamento leve e durável, além de acrigel, molde F1 e banho de gel." },
+  { nome: "Design de sobrancelhas", midia: "sobrancelhas", alt: "Sobrancelha sendo desenhada com pincel", texto: "Desenho que valoriza o olhar. Combine com a colocação de cílios." }
+];
+
+const CATALOGO = [
+  { id: "cabelo", nome: "Cabelo", grupos: [
+    { nome: "Cortes", itens: [
+      ["Corte feminino", "Personalizado para seu estilo e formato de rosto."],
+      ["Corte masculino", "Moderno ou clássico, sempre impecável."],
+      ["Corte infantil", "Feito com carinho para os pequenos."],
+      ["Corte de franja", "Ajuste ou criação da franja."],
+      ["Corte bordado", "Elimina pontas duplas sem alterar o comprimento."]]},
+    { nome: "Coloração e mechas", itens: [
+      ["Coloração Inoa", "Tecnologia sem amônia, com máxima cobertura e conforto."],
+      ["Aplicação de coloração", "Realce ou mude a cor dos fios com técnica profissional."],
+      ["Mechas", "Técnicas variadas para clarear e iluminar os cabelos."],
+      ["Morena iluminada", "Efeito natural e sofisticado para morenas."]]},
+    { nome: "Tratamentos capilares", itens: [
+      ["Escova London", "Liso perfeito, brilho e sofisticação."],
+      ["Botox capilar", "Hidratação intensa e alinhamento dos fios."],
+      ["Cauterização capilar profunda", "Reposição de massa e brilho duradouro."],
+      ["Reconstrução capilar profunda", "Recupera fios danificados e quebradiços."],
+      ["Terapia capilar", "Tratamento personalizado para a saúde do couro cabeludo."]]},
+    { nome: "Hidratações especiais", itens: [
+      ["Hidratação com ampolas", "Dose rápida de brilho e maciez."],
+      ["Hidratação Kérastase", "Tratamento premium para cabelos exigentes."],
+      ["Hidratação L’Oréal", "Brilho e suavidade."],
+      ["Hidratação Braé", "Recuperação e força para cabelos fragilizados."],
+      ["Hidratação de cachos", "Definição e hidratação para fios cacheados."]]},
+    { nome: "Finalizações e modelagens", itens: [
+      ["Baby liss (cachos)", "Ondas e cachos definidos com efeito natural."],
+      ["Chapinha", "Liso alinhado."],
+      ["Escova", "Acabamento liso e sedoso."],
+      ["Escova modelada", "Movimento e forma para um visual elegante."],
+      ["Higienização + secagem", "Limpeza e finalização prática para o dia a dia."]]}
+  ]},
+  { id: "unhas", nome: "Unhas", grupos: [
+    { nome: "Manicure e pedicure", itens: [
+      ["Manicure", "Cuidado e beleza para as mãos."],
+      ["Pedicure", "Beleza e conforto para os pés."],
+      ["Manicure masculina", "Higiene e cuidado para as mãos masculinas."],
+      ["Francesinha", "Acabamento elegante."],
+      ["Esmaltação das mãos", "Cor e brilho impecáveis."],
+      ["Esmaltação dos pés", "Cor e brilho impecáveis."],
+      ["Selante de unhas", "Proteção extra e brilho prolongado."],
+      ["Esfoliação dos pés", "Pele macia e renovada."]]},
+    { nome: "Nail designer", itens: [
+      ["Unha de acrigel", "Alongamento e fortalecimento com acabamento natural e resistente."],
+      ["Unha de fibra de vidro e F1", "Unhas leves e duráveis, com reforço extra da fibra."],
+      ["Unha molde F1", "Alongamento preciso com molde."],
+      ["Unha postiça", "Aplicação rápida para um visual imediato."],
+      ["Manutenção", "Prolonga a durabilidade e a beleza das unhas alongadas."],
+      ["Reconstrução de unha", "Recuperação de unhas danificadas."],
+      ["Banho de gel", "Brilho intenso e mais resistência."],
+      ["Esmaltação em gel", "Esmalte duradouro, com secagem rápida."]]}
+  ]},
+  { id: "estetica", nome: "Estética e spa", grupos: [
+    { nome: "Estética corporal", itens: [
+      ["Corrente russa", "Estímulo muscular para tonificação corporal."],
+      ["Drenagem linfática", "Elimina toxinas e reduz o inchaço."],
+      ["Heccus (por área)", "Ultrassom estético para gordura localizada."],
+      ["Heccus + corrente russa", "Redução de gordura e tonificação muscular."],
+      ["Heccus + modeladora + corrente", "Modelagem corporal completa."],
+      ["Massagem com pedras quentes", "Relaxamento profundo com pedras aquecidas."],
+      ["Massagem modeladora", "Modela e define os contornos do corpo."],
+      ["Massagem redutora", "Reduz medidas e celulite localizada."]]},
+    { nome: "Estética facial", itens: [
+      ["Higienização facial", "Limpeza suave para uma pele saudável."],
+      ["Lifting facial", "Estímulo para firmeza e rejuvenescimento."],
+      ["Limpeza de pele", "Remove impurezas e desobstrui os poros."],
+      ["Limpeza de pele com peeling de diamante", "Esfoliação profunda e renovação celular."],
+      ["Microagulhamento facial", "Estimula o colágeno e melhora a textura."],
+      ["Peeling de diamante + máscara", "Renovação celular e nutrição facial."],
+      ["Revitalização facial", "Hidratação intensa e luminosidade imediata."]]},
+    { nome: "Spa", itens: [
+      ["Mini spa com ofurô", "Relaxamento completo com imersão terapêutica."],
+      ["Mini spa sem imersão", "Relaxamento completo, sem o banho de ofurô."]]}
+  ]},
+  { id: "depilacao", nome: "Depilação", nota: "O site do salão ainda não lista os tipos de depilação. Consulte áreas e valores pelo WhatsApp.", grupos: [
+    { nome: "Depilação", itens: [["Depilação a cera", "Consulte as áreas atendidas."]]}
+  ]},
+  { id: "cilios", nome: "Cílios", nota: "O site do salão ainda não detalha as técnicas de cílios. Consulte pelo WhatsApp.", grupos: [
+    { nome: "Cílios", itens: [["Colocação de cílios", "Consulte as técnicas disponíveis."], ["Cílios + sobrancelhas", "Os dois serviços no mesmo atendimento."]]}
+  ]},
+  { id: "sobrancelhas", nome: "Sobrancelhas", nota: "O site do salão cita estes serviços sem descrição detalhada. Consulte pelo WhatsApp.", grupos: [
+    { nome: "Sobrancelhas e outros cuidados", itens: [["Design de sobrancelhas", "Desenho que valoriza o olhar."], ["Micropigmentação", "Consulte disponibilidade."], ["Podologia", "Atendimento com podóloga. Consulte disponibilidade."]]}
+  ]}
+];
+
+/* validade: null = sem data de término. Data no formato AAAA-MM-DD. */
+const CUPONS = [
+  { codigo: "NIVER10", pct: "10%", titulo: "Aniversário", regra: "Desconto no mês do seu aniversário.", validade: null, validadeTexto: "Válido no mês do seu aniversário" },
+  { codigo: "MASSAGEM10", pct: "10%", titulo: "Massagem relaxante", regra: "Desconto na sua primeira massagem.", validade: "2024-12-31" },
+  { codigo: "CORTEHIDRATADO", pct: "15%", titulo: "Corte + hidratação", regra: "Desconto em corte + hidratação, às terças e quartas.", validade: "2024-12-31" },
+  { codigo: "TERAPIA10", pct: "10%", titulo: "Terapia capilar", regra: "Desconto no pacote de terapia capilar com 4 sessões.", validade: "2024-12-31" },
+  { codigo: "CILIOS10", pct: "10%", titulo: "Colocação de cílios", regra: "Desconto na colocação de cílios, às terças e quartas.", validade: "2024-12-31" },
+  { codigo: "CORTEESCOVADO", pct: "10%", titulo: "Corte + escova", regra: "Desconto no serviço de corte + escova, às terças e quartas.", validade: "2024-12-31" },
+  { codigo: "MASSAGEIA", pct: "10%", titulo: "Massagem corporal + massagem facial", regra: "Desconto no serviço de massagens, às terças e quartas.", validade: "2024-12-31" },
+  { codigo: "DEPILACAO10", pct: "10%", titulo: "Depilação a cera", regra: "Desconto na sua primeira depilação a cera.", validade: "2024-12-31" },
+  { codigo: "COMBOCILIOS", pct: "10%", titulo: "Cílios + sobrancelhas", regra: "Desconto em colocação de cílios + sobrancelhas, às terças e quartas.", validade: "2024-12-31" }
+];
+
+/* =====================================================================
+   2. CENA DO CORTE — pontos da rolagem (0 a 1) dentro da seção #corte
+   ===================================================================== */
+const CORTE = {
+  entrada: 0.35,   // até aqui a tesoura entra aberta
+  fechar: 0.55,    // AQUI as lâminas se fecham no ponto do corte
+  queda: 0.75,     // até aqui a ponta cortada cai e gira
+  abertura: 24,    // graus de cada lâmina quando aberta
+  quedaPx: 24, quedaGiro: 8
+};
+
+/* ===================================================================== */
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const wa = msg => `https://wa.me/${SALAO.whatsapp}?text=${encodeURIComponent(msg)}`;
+const esc = s => s.replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+function ligarFotos(raiz = document) {
+  $$("img[data-midia]", raiz).forEach(img => {
+    const fig = img.closest(".foto");
+    img.addEventListener("error", () => fig && fig.classList.add("falhou"));
+    img.src = MIDIAS[img.dataset.midia] || "";
+  });
+}
+
+/* Destaques */
+$("#destaques").innerHTML = DESTAQUES.map(d => `
+  <article class="destaque">
+    <figure class="foto" data-legenda="${esc(d.nome)}"><img data-midia="${d.midia}" alt="${esc(d.alt)}" loading="lazy"></figure>
+    <h3>${esc(d.nome)}</h3>
+    <p>${esc(d.texto)}</p>
+    <a href="${wa(SALAO.mensagemServico(d.nome))}">Agendar ${esc(d.nome.toLowerCase())}</a>
+  </article>`).join("");
+
+/* Catálogo com abas */
+const abas = $("#abas"), abaPainel = $("#aba-painel");
+abas.innerHTML = CATALOGO.map((c, i) => `<button class="aba" role="tab" id="aba-${c.id}" aria-controls="aba-painel" aria-selected="${i === 0}" tabindex="${i === 0 ? 0 : -1}" data-cat="${c.id}">${esc(c.nome)}</button>`).join("");
+function abrirCategoria(id, focar) {
+  const c = CATALOGO.find(x => x.id === id) || CATALOGO[0];
+  $$(".aba", abas).forEach(b => { const on = b.dataset.cat === c.id; b.setAttribute("aria-selected", on); b.tabIndex = on ? 0 : -1; if (on && focar) b.focus(); if (on) b.scrollIntoView({ block: "nearest", inline: "nearest" }); });
+  abaPainel.setAttribute("aria-labelledby", "aba-" + c.id);
+  abaPainel.innerHTML = (c.nota ? `<p class="nota">${esc(c.nota)}</p>` : "") + `<div class="grupos">` + c.grupos.map(g => `
+    <div class="grupo"><h4>${esc(g.nome)}</h4><ul>${g.itens.map(([n, t]) => `
+      <li><a class="servico" href="${wa(SALAO.mensagemServico(n))}"><strong>${esc(n)}</strong><small>${esc(t)}</small><i>Agendar</i></a></li>`).join("")}</ul></div>`).join("") + `</div>`;
+  abaPainel.style.animation = "none"; abaPainel.offsetWidth; abaPainel.style.animation = "";
+}
+abas.addEventListener("click", e => { const b = e.target.closest(".aba"); if (b) abrirCategoria(b.dataset.cat); });
+abas.addEventListener("keydown", e => {
+  const lista = $$(".aba", abas), i = lista.indexOf(document.activeElement); if (i < 0) return;
+  const j = e.key === "ArrowRight" ? i + 1 : e.key === "ArrowLeft" ? i - 1 : e.key === "Home" ? 0 : e.key === "End" ? lista.length - 1 : null;
+  if (j === null) return; e.preventDefault();
+  abrirCategoria(lista[(j + lista.length) % lista.length].dataset.cat, true);
+});
+abrirCategoria(CATALOGO[0].id);
+$$("#painel a[data-cat]").forEach(a => a.addEventListener("click", () => abrirCategoria(a.dataset.cat)));
+
+/* Cupons */
+const hoje = new Date();
+const vencido = c => c.validade && new Date(c.validade + "T23:59:59") < hoje;
+const dataBR = d => d.split("-").reverse().join("/");
+const cupomHTML = c => `
+  <article class="cupom${vencido(c) ? " vencido" : ""}">
+    <h3>${esc(c.titulo)}</h3>
+    <div class="pct">${c.pct}</div>
+    <p class="regra">${esc(c.regra)}</p>
+    <div class="codigo"><span>${c.codigo}</span><button class="copiar" type="button" data-codigo="${c.codigo}" aria-label="Copiar código ${c.codigo}">Copiar</button></div>
+    <a href="${wa(SALAO.mensagemCupom(c))}">${vencido(c) ? "Perguntar se ainda vale" : "Usar no WhatsApp"}</a>
+    <p class="validade">${vencido(c) ? "Venceu em " + dataBR(c.validade) : (c.validadeTexto || "Válido até " + dataBR(c.validade))}</p>
+  </article>`;
+$("#cupons-validos").innerHTML = CUPONS.filter(c => !vencido(c)).map(cupomHTML).join("");
+$("#cupons-vencidos").innerHTML = CUPONS.filter(vencido).map(cupomHTML).join("");
+document.addEventListener("click", e => {
+  const b = e.target.closest(".copiar"); if (!b) return;
+  const ok = () => { b.textContent = "Copiado"; setTimeout(() => b.textContent = "Copiar", 1600); };
+  try { navigator.clipboard.writeText(b.dataset.codigo).then(ok, () => { b.textContent = "Selecione o código"; }); } catch { b.textContent = "Selecione o código"; }
+});
+
+/* Links de WhatsApp, fotos, menu e dia de hoje */
+$$("[data-wa=geral]").forEach(a => a.href = wa(SALAO.mensagemGeral));
+$$("[data-servico]").forEach(a => a.href = wa(SALAO.mensagemServico(a.dataset.servico)));
+ligarFotos();
+const botao = $(".menu-botao"), menu = $("#menu");
+const fecharMenu = () => { menu.classList.remove("aberto"); botao.setAttribute("aria-expanded", "false"); botao.setAttribute("aria-label", "Abrir menu"); };
+botao.addEventListener("click", () => { const abrir = !menu.classList.contains("aberto"); menu.classList.toggle("aberto", abrir); botao.setAttribute("aria-expanded", abrir); botao.setAttribute("aria-label", abrir ? "Fechar menu" : "Abrir menu"); });
+menu.addEventListener("click", e => { if (e.target.closest("a")) fecharMenu(); });
+document.addEventListener("keydown", e => { if (e.key === "Escape" && menu.classList.contains("aberto")) { fecharMenu(); botao.focus(); } });
+const linhaHoje = $(`#horarios tr[data-dia="${hoje.getDay()}"]`);
+if (linhaHoje) { linhaHoje.classList.add("hoje"); linhaHoje.querySelector("th").append(" (hoje)"); }
+
+/* =====================================================================
+   Tesoura: tudo é função pura do progresso p, então desfazer, saltar por
+   âncora ou carregar no meio da seção cai sempre no estado correto.
+   ===================================================================== */
+(() => {
+  const secao = $("#corte"), cena = $(".cena"), svg = $("#cena-svg"), painel = $("#painel");
+  const presa = $("#mecha-presa"), ponta = $("#mecha-ponta"), mecha = $("#mecha"), rect = $("#surgir-rect");
+  const tesoura = $("#tesoura"), la = $("#lamina-a"), lb = $("#lamina-b");
+  const reduz = matchMedia("(prefers-reduced-motion: reduce)");
+  const lim = x => Math.max(0, Math.min(1, x));
+  const trecho = (a, b, p) => lim((p - a) / (b - a));
+  const suave = t => t * t * (3 - 2 * t);
+  const mix = (a, b, t) => a + (b - a) * t;
+  let G = null;
+
+  function medir() {
+    const estatico = reduz.matches;
+    secao.classList.toggle("estatico", estatico);
+    const w = cena.clientWidth, h = cena.clientHeight, cel = innerWidth <= 820;
+    svg.setAttribute("viewBox", `0 0 ${w} ${h}`);
+    // Curva da mecha (Bézier cúbica) e ponto do corte, por formato de tela
+    const P = estatico ? [[.5, -.02], [.72, .3], [.3, .5], [.5, 1.02]]
+            : cel      ? [[.9, .30], [1.0, .44], [.34, .46], [.5, .80]]
+                       : [[.72, -.02], [.88, .28], [.5, .42], [.62, .92]];
+    const tc = estatico ? .55 : cel ? .5 : .62;
+    const pts = P.map(([x, y]) => [x * w, y * h]);
+    const L = (a, b, t) => [mix(a[0], b[0], t), mix(a[1], b[1], t)];
+    const a1 = L(pts[0], pts[1], tc), m = L(pts[1], pts[2], tc), b2 = L(pts[2], pts[3], tc);
+    const a2 = L(a1, m, tc), b1 = L(m, b2, tc), c = L(a2, b1, tc);
+    const ang = Math.atan2(b1[1] - a2[1], b1[0] - a2[0]) * 180 / Math.PI - 90; // lâminas perpendiculares à mecha
+    const f = n => n.toFixed(1);
+    const dCima = `M${f(pts[0][0])} ${f(pts[0][1])}C${f(a1[0])} ${f(a1[1])} ${f(a2[0])} ${f(a2[1])} ${f(c[0])} ${f(c[1])}`;
+    const dBaixo = `M${f(c[0])} ${f(c[1])}C${f(b1[0])} ${f(b1[1])} ${f(b2[0])} ${f(b2[1])} ${f(pts[3][0])} ${f(pts[3][1])}`;
+    const k = cel || estatico ? .85 : 1.25;
+    const fios = [[-15, 7, "#3A2018"], [-9, 8, "#4A2A1E"], [-3, 9, "#6B3F28"], [3, 8, "#C0864C"], [9, 8, "#4A2A1E"], [14, 6, "#8A5A36"], [-6, 2, "#D9A873"], [6, 1.5, "#2A161C"]];
+    const fio = (d, i, corta) => fios.map(([dx, lw, cor], j) =>
+      `<path d="${d}" transform="translate(${f(dx * k)} 0)" fill="none" stroke="${cor}" stroke-width="${f(lw * k)}" stroke-linecap="${corta ? "round" : "butt"}"${corta ? ` pathLength="1" stroke-dasharray="${(.78 + ((j * 37) % 22) / 100).toFixed(2)} 2"` : ""}/>`).join("");
+    presa.innerHTML = fio(dCima, 0, false);
+    ponta.innerHTML = fio(dBaixo, 1, true);
+    const s = estatico ? Math.min(w * .3, 150) / 170 : cel ? (w * .46) / 170 : Math.min(w * .2, 300) / 170;
+    const rad = ang * Math.PI / 180;
+    G = { w, h, c, ang, s, cel, estatico,
+          px: c[0] + Math.cos(rad) * 85 * s, py: c[1] + Math.sin(rad) * 85 * s,
+          percurso: cel ? w * .5 : w * .45 };
+    aplicar();
+  }
+
+  function progresso() {
+    const r = secao.getBoundingClientRect(), vh = innerHeight, antes = vh * .35;
+    return lim((antes - r.top) / (r.height - vh + antes));
+  }
+
+  function aplicar() {
+    if (!G) return;
+    const est = G.estatico, p = est ? CORTE.queda : progresso();
+    const e1 = suave(trecho(0, CORTE.entrada, p));            // entrada
+    const e2 = suave(trecho(CORTE.entrada, CORTE.fechar, p)); // alinhar + fechar
+    const e3 = suave(trecho(CORTE.fechar, CORTE.queda, p));   // queda da ponta
+    const e4 = suave(trecho(CORTE.queda, 1, p));              // revelar serviços
+
+    // Mecha: surge acompanhando a curva, de cima para baixo
+    const surge = est ? 1 : lim(.3 + trecho(0, CORTE.entrada * .9, p) * .75);
+    rect.setAttribute("x", -50); rect.setAttribute("y", -50);
+    rect.setAttribute("width", G.w + 100); rect.setAttribute("height", (G.h + 100) * surge);
+    mecha.style.opacity = est ? 1 : mix(1, .1, e4);
+    ponta.setAttribute("transform", `translate(0 ${(CORTE.quedaPx * e3).toFixed(2)}) rotate(${(CORTE.quedaGiro * e3).toFixed(2)} ${G.c[0].toFixed(1)} ${G.c[1].toFixed(1)})`);
+    ponta.style.opacity = est ? .9 : mix(1, .85, e3) * (1 - e4);
+
+    // Tesoura: entra aberta, alinha, fecha exatamente em CORTE.fechar, reabre e sai
+    const desloc = G.percurso * (mix(1, .14, e1) - .14 * e2 + .5 * e4);
+    const giro = G.ang + mix(16, 5, e1) * (1 - e2);
+    const abre = CORTE.abertura * (1 - e2) + 9 * suave(trecho(CORTE.fechar + .05, CORTE.queda, p)) * (est ? 0 : 1);
+    tesoura.setAttribute("transform", `translate(${(G.px + desloc).toFixed(1)} ${G.py.toFixed(1)}) rotate(${giro.toFixed(2)}) scale(${G.s.toFixed(3)})`);
+    la.setAttribute("transform", `rotate(${abre.toFixed(2)})`);
+    lb.setAttribute("transform", `rotate(${(-abre).toFixed(2)})`);
+    tesoura.style.opacity = est ? 1 : lim(trecho(0, .1, p)) * (1 - e4);
+
+    // Painel de serviços: revelação curta por máscara, a partir da linha do corte
+    if (est) { painel.style.clipPath = ""; painel.style.visibility = ""; }
+    else {
+      painel.style.visibility = e4 > 0 ? "visible" : "hidden";
+      painel.style.clipPath = `inset(0 0 ${((1 - e4) * 100).toFixed(1)}% 0 round 28px 28px 28px 4px)`;
+    }
+  }
+
+  let quadro = 0;
+  const pedir = () => { if (!quadro) quadro = requestAnimationFrame(() => { quadro = 0; aplicar(); }); };
+  addEventListener("scroll", pedir, { passive: true });
+  addEventListener("resize", medir);
+  addEventListener("hashchange", () => requestAnimationFrame(aplicar));
+  addEventListener("load", medir);
+  reduz.addEventListener("change", medir);
+  medir();
+})();
+</script>
+</body>
+</html>
