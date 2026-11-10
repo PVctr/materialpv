@@ -488,6 +488,10 @@ body.menu-open .header__inner {
   --shot-bg: #141518; --shot-fg: #f7f7f4; --shot-bar: #000000; --shot-line: #2c2e33; --shot-dot: #2c2e33;
   --shot-url: #141518; --shot-muted: #a19d93;
 }
+.shot--ganso {
+  --shot-bg: #0e0e0f; --shot-fg: #e9e6df; --shot-bar: #19191b; --shot-line: #38383b; --shot-dot: #38383b;
+  --shot-url: #0e0e0f; --shot-muted: #8f8d88;
+}
 
 /* ---------- Por que ter um site ---------- */
 .why {

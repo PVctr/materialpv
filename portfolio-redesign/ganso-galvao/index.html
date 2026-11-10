@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ganso Galvão — realismo em preto e cinza, Copacabana</title>
+<link rel="icon" href="img/marca.png">
+<meta name="description" content="Portfólio de Ganso Galvão, tatuador de realismo em preto e cinza no King Seven Tattoo Studio, em Copacabana, Rio de Janeiro. Veja os trabalhos e solicite um orçamento.">
+<link rel="preload" as="image" href="img/hero-retrato.jpg" fetchpriority="high">
+<link rel="preload" href="fonts/league-gothic-normal-latin-f94aa8.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/fontes.css">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<a class="pular" href="#portfolio">Ir para o portfólio</a>
+
+<header class="nav">
+  <a class="marca" href="#topo" aria-label="Ganso Galvão, início"><img src="img/marca.png" alt="" width="160" height="167"><span>Ganso Galvão</span></a>
+  <nav aria-label="Seções">
+    <ul class="nav-lista" id="menu">
+      <li><a href="#portfolio">Portfólio</a></li>
+      <li><a href="#trajetoria">Trajetória</a></li>
+      <li><a href="#processo">Processo</a></li>
+      <li><a href="#mundo">Pelo mundo</a></li>
+      <li><a href="#estudio">Estúdio</a></li>
+      <li class="nav-marcador" aria-hidden="true"></li>
+    </ul>
+  </nav>
+  <button class="nav-menu" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
+  <a class="botao cheio" href="#orcamento">Orçamento</a>
+</header>
+
+<main>
+  <!-- ABERTURA: retrato do artista; a primeira peça entra na mesma moldura. Para trocar a mídia, ver LEIAME.md -->
+  <section class="abertura" id="topo" aria-label="Abertura">
+    <span class="ancora-portfolio" id="portfolio"></span>
+    <div class="palco">
+      <div class="quadro-hero">
+        <figure class="moldura retrato-hero">
+          <div class="deriva"><img src="img/hero-retrato.jpg" alt="Retrato de Ganso Galvão com as mãos tatuadas entrelaçadas" width="640" height="800" fetchpriority="high"></div>
+        </figure>
+        <div class="veu"></div>
+        <div class="grao"></div>
+        <div class="hero-texto">
+          <h1 class="nome"><span class="linha"><span>Ganso</span></span><span class="linha"><span>Galvão</span></span></h1>
+          <p class="especialidade">Realismo em preto e cinza. King Seven Tattoo Studio, Copacabana, Rio de Janeiro.</p>
+          <p class="oficio">Duas décadas transformando histórias em arte permanente. Trabalhos realizados em mais de 20 países e presença nas principais convenções de tatuagem do mundo.</p>
+          <div class="fila">
+            <a class="botao" href="#portfolio">Explorar trabalhos</a>
+            <a class="botao cheio" href="#orcamento">Solicitar orçamento</a>
+          </div>
+        </div>
+        <button class="pausa" type="button" aria-pressed="false">Pausar movimento</button>
+      </div>
+      <div class="quadro-peca">
+        <button class="moldura prancha" type="button" tabindex="-1" data-peca="0" data-src="img/p01-leao.jpg" data-nome="Leão" data-local="Antebraço, realismo animal" data-w="600" data-h="800" aria-label="Abrir a peça Leão">
+          <span class="camada-leao"><img src="img/hero-leao-macro.jpg" alt="Tatuagem Leão: antebraço, realismo animal" width="1200" height="1600"></span>
+        </button>
+        <div class="peca-texto">
+          <h2 class="titulo">Leão</h2>
+          <p class="legenda">Antebraço, realismo animal. A primeira das 14 peças deste portfólio.</p>
+          <button class="botao" type="button" data-peca="0" data-src="img/p01-leao.jpg" data-nome="Leão" data-local="Antebraço, realismo animal" data-w="600" data-h="800">Abrir peça</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao galeria" id="galeria" aria-labelledby="t-galeria">
+    <div class="galeria-cab">
+      <h2 class="titulo" id="t-galeria">Portfólio</h2>
+      <p>Toque em uma peça para ver a foto inteira e ampliar o traço.</p>
+    </div>
+    <div class="grade">
+      <figure class="peca larga" style="--c:1/span 6;--ar:3/4;--mt:0;--foco:50% 30%">
+        <button type="button" data-peca="1" data-src="img/p02-valquiria.jpg" data-nome="Valquíria" data-local="Braço, sombras profundas" data-w="600" data-h="800" aria-label="Abrir a peça Valquíria"><img src="img/p02-valquiria.jpg" alt="Tatuagem Valquíria: braço, sombras profundas" width="600" height="800" loading="lazy" decoding="async"></button>
+        <figcaption class="legenda"><b>Valquíria</b><br>Braço, sombras profundas</figcaption>
+      </figure>
+      <figure class="peca " style="--c:9/span 3;--ar:3/4;--mt:16vw;--foco:50% 50%">
+        <button type="button" data-peca="2" data-src="img/p03-caveira-e-rosa.jpg" data-nome="Caveira e Rosa" data-local="Braço, preto e cinza" data-w="600" data-h="800" aria-label="Abrir a peça Caveira e Rosa"><img src="img/p03-caveira-e-rosa.jpg" alt="Tatuagem Caveira e Rosa: braço, preto e cinza" width="600" height="800" loading="lazy" decoding="async"></button>
+        <figcaption class="legenda"><b>Caveira e Rosa</b><br>Braço, preto e cinza</figcaption>
+      </figure>
+      <figure class="peca desce" style="--c:2/span 4;--ar:1/1;--mt:0;--foco:50% 40%">
+        <button type="button" data-peca="3" data-src="img/p04-deusa.jpg" data-nome="Deusa" data-local="Braço fechado, realismo" data-w="800" data-h="800" aria-label="Abrir a peça Deusa"><img src="img/p04-deusa.jpg" alt="Tatuagem Deusa: braço fechado, realismo" width="800" height="800" loading="lazy" decoding="async"></button>
+        <figcaption class="legenda"><b>Deusa</b><br>Braço fechado, realismo</figcaption>
+      </figure>
+      <figure class="peca larga" style="--c:7/span 5;--ar:3/4;--mt:-6vw;--foco:60% 40%">
+        <button type="button" data-peca="4" data-src="img/p05-veu.jpg" data-nome="Véu" data-local="Costas, retrato feminino" data-w="600" data-h="800" aria-label="Abrir a peça Véu"><img src="img/p05-veu.jpg" alt="Tatuagem Véu: costas, retrato feminino" width="600" height="800" loading="lazy" decoding="async"></button>
+        <figcaption class="legenda"><b>Véu</b><br>Costas, retrato feminino</figcaption>
+      </figure>
+      <figure class="peca " style="--c:1/span 3;--ar:3/4;--mt:4vw;--foco:50% 30%">
+        <button type="button" data-peca="5" data-src="img/p06-coruja-e-lobo.jpg" data-nome="Coruja e Lobo" data-local="Antebraço, fauna" data-w="540" data-h="720" aria-label="Abrir a peça Coruja e Lobo"><img src="img/p06-coruja-e-lobo.jpg" alt="Tatuagem Coruja e Lobo: antebraço, fauna" width="540" height="720" loading="lazy" decoding="async"></button>
+        <figcaption class="legenda"><b>Coruja e Lobo</b><br>Antebraço, fauna</figcaption>
+      </figure>
+      <figure class="peca desce" style="--c:5/span 3;--ar:3/4;--mt:0;--foco:50% 35%">
+        <button type="button" data-peca="6" data-src="img/p07-farao.jpg" data-nome="Faraó" data-local="Braço, detalhe em pedra" data-w="600" data-h="800" aria-label="Abrir a peça Faraó"><img src="img/p07-farao.jpg" alt="Tatuagem Faraó: braço, detalhe em pedra" width="600" height="800" loading="lazy" decoding="async"></button>
+        <figcaption class="legenda"><b>Faraó</b><br>Braço, detalhe em pedra</figcaption>
+      </figure>
+      <figure class="peca larga" style="--c:9/span 4;--ar:4/5;--mt:9vw;--foco:50% 30%">
+        <button type="button" data-peca="7" data-src="img/p08-leao-e-caveira.jpg" data-nome="Leão e Caveira" data-local="Ombro, composição" data-w="600" data-h="800" aria-label="Abrir a peça Leão e Caveira"><img src="img/p08-leao-e-caveira.jpg" alt="Tatuagem Leão e Caveira: ombro, composição" width="600" height="800" loading="lazy" decoding="async"></button>
+        <figcaption class="legenda"><b>Leão e Caveira</b><br>Ombro, composição</figcaption>
+      </figure>
+      <figure class="peca larga" style="--c:3/span 6;--ar:3/4;--mt:0;--foco:50% 45%">
+        <button type="button" data-peca="8" data-src="img/p09-lagrima.jpg" data-nome="Lágrima" data-local="Antebraço, retrato" data-w="600" data-h="800" aria-label="Abrir a peça Lágrima"><img src="img/p09-lagrima.jpg" alt="Tatuagem Lágrima: antebraço, retrato" width="600" height="800" loading="lazy" decoding="async"></button>
+        <figcaption class="legenda"><b>Lágrima</b><br>Antebraço, retrato</figcaption>
+      </figure>
+      <figure class="peca " style="--c:10/span 3;--ar:4/5;--mt:20vw;--foco:50% 35%">
+        <button type="button" data-peca="9" data-src="img/p10-leopardo.jpg" data-nome="Leopardo" data-local="Antebraço, pelagem" data-w="600" data-h="800" aria-label="Abrir a peça Leopardo"><img src="img/p10-leopardo.jpg" alt="Tatuagem Leopardo: antebraço, pelagem" width="600" height="800" loading="lazy" decoding="async"></button>
+        <figcaption class="legenda"><b>Leopardo</b><br>Antebraço, pelagem</figcaption>
+      </figure>
+      <figure class="peca desce" style="--c:1/span 4;--ar:3/4;--mt:0;--foco:50% 45%">
+        <button type="button" data-peca="10" data-src="img/p11-maos-em-prece.jpg" data-nome="Mãos em Prece" data-local="Braço, projeto religioso" data-w="600" data-h="800" aria-label="Abrir a peça Mãos em Prece"><img src="img/p11-maos-em-prece.jpg" alt="Tatuagem Mãos em Prece: braço, projeto religioso" width="600" height="800" loading="lazy" decoding="async"></button>
+        <figcaption class="legenda"><b>Mãos em Prece</b><br>Braço, projeto religioso</figcaption>
+      </figure>
+      <figure class="peca larga" style="--c:6/span 3;--ar:1/1;--mt:7vw;--foco:45% 30%">
+        <button type="button" data-peca="11" data-src="img/p12-oni.jpg" data-nome="Oni" data-local="Braço fechado, oriental" data-w="600" data-h="800" aria-label="Abrir a peça Oni"><img src="img/p12-oni.jpg" alt="Tatuagem Oni: braço fechado, oriental" width="600" height="800" loading="lazy" decoding="async"></button>
+        <figcaption class="legenda"><b>Oni</b><br>Braço fechado, oriental</figcaption>
+      </figure>
+      <figure class="peca " style="--c:9/span 4;--ar:3/4;--mt:-3vw;--foco:50% 60%">
+        <button type="button" data-peca="12" data-src="img/p13-o-velho.jpg" data-nome="O Velho" data-local="Braço, retrato clássico" data-w="600" data-h="800" aria-label="Abrir a peça O Velho"><img src="img/p13-o-velho.jpg" alt="Tatuagem O Velho: braço, retrato clássico" width="600" height="800" loading="lazy" decoding="async"></button>
+        <figcaption class="legenda"><b>O Velho</b><br>Braço, retrato clássico</figcaption>
+      </figure>
+      <figure class="peca desce" style="--c:4/span 5;--ar:3/4;--mt:0;--foco:50% 45%">
+        <button type="button" data-peca="13" data-src="img/p14-caveira.jpg" data-nome="Caveira" data-local="Mão, alto contraste" data-w="600" data-h="800" aria-label="Abrir a peça Caveira"><img src="img/p14-caveira.jpg" alt="Tatuagem Caveira: mão, alto contraste" width="600" height="800" loading="lazy" decoding="async"></button>
+        <figcaption class="legenda"><b>Caveira</b><br>Mão, alto contraste</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="secao papel trajetoria" id="trajetoria" aria-labelledby="t-trajetoria">
+    <div class="duas">
+      <figure class="foto-larga"><img src="img/artista-penumbra.jpg" alt="Ganso Galvão em contraluz, de camiseta branca" width="1100" height="758" loading="lazy"></figure>
+      <figure class="foto-alta"><img src="img/artista-retrato.jpg" alt="Retrato de Ganso Galvão com as mãos tatuadas cruzadas" width="640" height="800" loading="lazy">
+        <figcaption class="legenda" style="margin-top:.6rem"><b>Ganso Galvão</b><br>Rio de Janeiro</figcaption></figure>
+      <div class="prosa">
+        <h2 class="titulo" id="t-trajetoria">Vinte anos de agulha na pele</h2>
+        <p>Ganso Galvão trabalha com realismo em preto e cinza há mais de vinte anos. Nesse tempo, tatuou em mais de vinte países e passou a frequentar o circuito internacional de convenções.</p>
+        <p>O trabalho parte de sombra, volume e textura. Cada projeto é desenhado para uma pessoa e para um lugar do corpo, da primeira conversa ao último traço.</p>
+        <p>Ele mede uma tatuagem pelo que ela mostra vinte anos depois, e não no dia em que fica pronta.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao papel processo" id="processo" aria-labelledby="t-processo">
+    <div class="duas">
+      <figure class="foto-alta"><img src="img/processo-sessao.jpg" alt="Mãos de Ganso Galvão, de luvas pretas, tatuando um antebraço" width="656" height="800" loading="lazy">
+        <figcaption class="legenda" style="margin-top:.6rem">Sessão no estúdio</figcaption></figure>
+      <div class="lado">
+        <h2 class="titulo" id="t-processo">Como nasce uma tatuagem</h2>
+        <ol class="etapas">
+          <li><div><h3>Conversa e briefing</h3><p>Você conta a ideia, a história por trás dela e onde quer a tatuagem. É disso que o desenho nasce.</p></div></li>
+          <li><div><h3>Projeto</h3><p>Desenho técnico com estudo de sombra, volume e proporção, pensado para envelhecer bem na pele.</p></div></li>
+          <li><div><h3>Sessão</h3><p>Traço firme e atenção a cada gradação de cinza, no estúdio e com hora marcada.</p></div></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao mundo" id="mundo" aria-labelledby="t-mundo">
+    <h2 class="titulo" id="t-mundo" style="margin-bottom:clamp(2rem,5vw,4rem)">Pelo mundo</h2>
+    <div class="duas">
+      <figure class="foto-a"><img src="img/mundo-barcelona.jpg" alt="Ganso Galvão ao lado de um trabalho de perna inteira na Barcelona Tattoo Expo" width="800" height="800" loading="lazy">
+        <figcaption class="legenda" style="margin-top:.6rem"><b>Barcelona Tattoo Expo</b><br>Espanha</figcaption></figure>
+      <figure class="foto-b"><img src="img/mundo-la-villette.jpg" alt="Ganso Galvão em frente à Grande Halle de La Villette, em Paris" width="800" height="800" loading="lazy">
+        <figcaption class="legenda" style="margin-top:.6rem"><b>La Villette</b><br>Paris, França</figcaption></figure>
+      <div class="lado">
+        <h3 class="sub">Convenções</h3>
+        <ul class="convencoes">
+          <li>Mondial du Tatouage <span>Paris, 2026</span></li>
+          <li>China Tattoo Convention <span>Ásia, convidado</span></li>
+          <li>Empire State Tattoo Expo <span>Nova York</span></li>
+          <li>Barcelona Tattoo Expo <span>Espanha</span></li>
+        </ul>
+        <p class="paises">Trabalhos realizados no Brasil, nos Estados Unidos, na França, na Espanha, na China, na Suécia e em outros países.</p>
+      </div>
+      <div class="imprensa">
+        <h3 class="sub">Na imprensa</h3>
+        <div class="materias">
+          <a href="https://istoe.com.br/tatuador-de-celebridades-ja-tatuou-em-18-paises-diferentes-e-relembra-perrengues-durante-as-viagens" target="_blank" rel="noopener"><strong>ISTOÉ</strong><span>As viagens a trabalho por 18 países e os perrengues do caminho</span></a>
+          <a href="https://caras.com.br/atualidades/tatuador-dos-famosos-opina-sobre-tatuagem-com-sedacao-um-exagero.phtml" target="_blank" rel="noopener"><strong>CARAS</strong><span>A opinião dele sobre tatuagem com sedação</span></a>
+          <a href="https://istoe.com.br/tatuador-das-celebridades-destaca-pontos-positivos-e-negativos-da-ia" target="_blank" rel="noopener"><strong>ISTOÉ</strong><span>Pontos positivos e negativos da IA na tatuagem</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao estudio" id="estudio" aria-labelledby="t-estudio">
+    <div class="duas">
+      <figure class="foto-alta"><img src="img/estudio-king-seven.jpg" alt="Interior do King Seven Tattoo Studio, com sofá de couro vermelho e o lema pintado na parede" width="623" height="822" loading="lazy"></figure>
+      <div class="lado">
+        <h2 class="titulo" id="t-estudio">King Seven Tattoo Studio</h2>
+        <address class="endereco">Rua Francisco Sá, 95<br>Copacabana, Rio de Janeiro, RJ<br>22080-010</address>
+        <ul class="notas">
+          <li>Atendimento só com hora marcada. Confirme o horário antes de vir.</li>
+          <li>Material descartável e esterilização em todas as sessões.</li>
+          <li>Metrô Cantagalo e estacionamento a poucos minutos.</li>
+        </ul>
+        <div class="fila">
+          <a class="botao cheio" href="https://www.google.com/maps/dir/?api=1&destination=-22.9836855,-43.1933341" target="_blank" rel="noopener">Como chegar</a>
+          <a class="botao" href="https://www.waze.com/ul?ll=-22.9836855%2C-43.1933341&navigate=yes&zoom=17" target="_blank" rel="noopener">Abrir no Waze</a>
+        </div>
+        <p class="lema">“Uma tatuagem nunca te abandona.”</p>
+        <p class="legenda">Lema pintado na parede do estúdio</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao papel orcamento" id="orcamento" aria-labelledby="t-orcamento">
+    <div class="duas">
+      <div class="lado prosa">
+        <h2 class="titulo" id="t-orcamento">Conte sua ideia</h2>
+        <p>Três informações bastam para começar a conversa. Ao enviar, o WhatsApp abre com a mensagem pronta para você revisar.</p>
+        <p class="contatos">WhatsApp <a data-whats="geral" href="https://wa.me/5521993018288" target="_blank" rel="noopener">21 99301-8288</a><br>
+        Instagram <a href="https://www.instagram.com/gansogalvao/" target="_blank" rel="noopener">@gansogalvao</a> e <a href="https://www.instagram.com/king7tattoo/" target="_blank" rel="noopener">@king7tattoo</a></p>
+      </div>
+      <form id="pedido" novalidate>
+        <div class="campo"><label for="f-ideia">Qual é a ideia</label><textarea id="f-ideia" name="ideia" rows="3"></textarea></div>
+        <div class="campo"><label for="f-regiao">Região do corpo</label><input id="f-regiao" name="regiao" type="text" autocomplete="off"></div>
+        <div class="campo"><label for="f-tamanho">Tamanho aproximado, em centímetros</label><input id="f-tamanho" name="tamanho" type="text" inputmode="numeric" autocomplete="off"></div>
+        <div><a class="botao cheio" id="pedido-enviar" href="https://wa.me/5521993018288" target="_blank" rel="noopener">Enviar pelo WhatsApp</a></div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="rodape">
+  <span>© 2026 Ganso Galvão</span>
+  <span>King Seven Tattoo Studio, Rua Francisco Sá, 95, Copacabana</span>
+  <a href="#topo">Voltar ao início</a>
+</footer>
+
+<dialog class="visor" aria-labelledby="visor-titulo">
+  <button class="fechar" type="button" aria-label="Fechar peça">×</button>
+  <div class="visor-palco"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt=""></div>
+  <div class="visor-lado">
+    <p class="visor-conta" aria-live="polite"></p>
+    <h2 id="visor-titulo"></h2>
+    <p class="legenda"></p>
+    <div class="visor-acoes">
+      <button class="botao visor-detalhe" type="button" aria-pressed="false">Ver detalhe</button>
+      <div class="visor-nav">
+        <button class="botao visor-ant" type="button">Anterior</button>
+        <button class="botao visor-prox" type="button">Próxima</button>
+      </div>
+      <a class="botao cheio visor-whats" href="https://wa.me/5521993018288" target="_blank" rel="noopener">Pedir orçamento para uma ideia nesse estilo</a>
+    </div>
+  </div>
+</dialog>
+
+<script src="js/site.js"></script>
+</body>
+</html>
